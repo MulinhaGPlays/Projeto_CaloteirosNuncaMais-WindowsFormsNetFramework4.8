@@ -1,0 +1,11 @@
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\bin\Debug\CaloteirosNuncaMais.Forms.exe.config
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\bin\Debug\CaloteirosNuncaMais.Forms.exe
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\bin\Debug\CaloteirosNuncaMais.Forms.pdb
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.csproj.AssemblyReference.cache
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.csproj.SuggestedBindingRedirects.cache
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Form1.resources
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Properties.Resources.resources
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.csproj.GenerateResource.cache
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.csproj.CoreCompileInputs.cache
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.exe
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.pdb
