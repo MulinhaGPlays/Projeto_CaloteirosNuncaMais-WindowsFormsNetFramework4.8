@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbEmprestimosModelStoreContainer" CdmEntityContainer="dbEmprestimosEntities">
+    <EntitySetMapping Name="Emprestimo">
+      <EntityTypeMapping TypeName="dbEmprestimosModel.Emprestimo">
+        <MappingFragment StoreEntitySet="Emprestimo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="MesesAtrasados" ColumnName="MesesAtrasados" />
+          <ScalarProperty Name="Pago" ColumnName="Pago" />
+          <ScalarProperty Name="DataEmp" ColumnName="DataEmp" />
+          <ScalarProperty Name="DataPrevisao" ColumnName="DataPrevisao" />
+          <ScalarProperty Name="Assinatura" ColumnName="Assinatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -40,5 +40,15 @@ namespace CaloteirosNuncaMais.Forms.Properties {
                 return ((string)(this["Password"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\FILAUPE;Initial Catalog=dbEmprestimos;Integrated Security=True")]
+        public string dbEmprestimosConnectionString {
+            get {
+                return ((string)(this["dbEmprestimosConnectionString"]));
+            }
+        }
     }
 }

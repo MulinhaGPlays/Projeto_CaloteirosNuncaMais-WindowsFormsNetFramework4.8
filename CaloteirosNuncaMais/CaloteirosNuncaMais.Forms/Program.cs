@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaloteirosNuncaMais.Forms.Telas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace CaloteirosNuncaMais.Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run();
+            Application.Run(new Principal());
         }
     }
 }
