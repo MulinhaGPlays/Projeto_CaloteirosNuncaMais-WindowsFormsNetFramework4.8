@@ -5,6 +5,7 @@ using CaloteirosNuncaMais.Forms.Windows.Dialogs;
 using System;
 using System.Data.Entity;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
@@ -35,8 +36,6 @@ namespace CaloteirosNuncaMais.Forms.Telas
 
             _context = new dbEmprestimosEntities();
             _emprestimos = _context.Emprestimos;
-            _fontCollection = new PrivateFontCollection();
-            //_fontCollection.AddFontFile(@"C:\Users\android\Documents\GitHub\WorldSkills\Provas\WSC2019_TP09\Common\Kazan Neft\brand guideline-rgb_Folder\Fonts\Helvetica-Normal.ttf");
 
             _skip = 0;
             _take = 5;

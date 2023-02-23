@@ -57,12 +57,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonGenerate = new System.Windows.Forms.Button();
             this.comboBoxPeoples2 = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SendEmail
@@ -368,27 +367,26 @@
             this.comboBoxPeoples2.TabIndex = 6;
             this.comboBoxPeoples2.ValueMember = "Id";
             // 
-            // pictureBox1
+            // panel1
             // 
-            this.pictureBox1.Image = global::CaloteirosNuncaMais.Forms.Properties.Resources.lucro;
-            this.pictureBox1.Location = new System.Drawing.Point(585, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.panel1.BackColor = System.Drawing.Color.Blue;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(780, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(181, 596);
+            this.panel1.TabIndex = 10;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LawnGreen;
-            this.ClientSize = new System.Drawing.Size(700, 319);
-            this.Controls.Add(this.pictureBox1);
+            this.BackColor = System.Drawing.Color.Navy;
+            this.ClientSize = new System.Drawing.Size(961, 596);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal";
             this.Text = "Principal";
@@ -399,7 +397,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -422,7 +419,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonGenerate;
         private System.Windows.Forms.ComboBox comboBoxPeoples2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
@@ -432,5 +428,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Juros;
         private System.Windows.Forms.DataGridViewButtonColumn Details;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Panel panel1;
     }
 }
