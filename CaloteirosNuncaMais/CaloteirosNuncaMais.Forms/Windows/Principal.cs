@@ -11,6 +11,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,6 @@ namespace CaloteirosNuncaMais.Forms.Telas
     public partial class Principal : Form
     {
         // TODO: validações
-        // TODO: estilizar
         // TODO: gerar o pdf
         private dbEmprestimosEntities _context;
         private IQueryable<Emprestimo> _emprestimos;
@@ -37,9 +37,23 @@ namespace CaloteirosNuncaMais.Forms.Telas
             _context = new dbEmprestimosEntities();
             _emprestimos = _context.Emprestimos;
 
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
+
             _skip = 0;
             _take = 5;
         }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+             int nLeftRect,     // x-coordinate of upper-left corner
+             int nTopRect,      // y-coordinate of upper-left corner
+             int nRightRect,    // x-coordinate of lower-right corner
+             int nBottomRect,   // y-coordinate of lower-right corner
+             int nWidthEllipse, // width of ellipse
+             int nHeightEllipse // height of ellipse
+         );
 
         private void CheckPage()
         {
@@ -52,7 +66,6 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.buttonNextPage.Enabled = max;
             this.buttonLastPage.Enabled = max;
         }
-
         private async Task CheckData()
         {
             foreach (var emprestimo in _context.Emprestimos)

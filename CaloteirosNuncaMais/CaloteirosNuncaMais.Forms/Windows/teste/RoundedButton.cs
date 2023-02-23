@@ -19,6 +19,8 @@ namespace CaloteirosNuncaMais.Forms.Windows.teste
         private Color _textColor = Color.White;
         private Color _onHoverTextColor = Color.Gray;
 
+        private string _text;
+
         private bool _isHovering;
         private int _borderThickness = 6;
         private int _borderThicknessByTwo = 3;
@@ -69,8 +71,8 @@ namespace CaloteirosNuncaMais.Forms.Windows.teste
             brush = new SolidBrush(_isHovering ? _onHoverTextColor : _textColor);
 
             //Button Text
-            SizeF stringSize = g.MeasureString(Text, Font);
-            g.DrawString(Text, Font, brush, (Width - stringSize.Width) / 2, (Height - stringSize.Height) / 2);
+            SizeF stringSize = g.MeasureString(ButtonText, Font);
+            g.DrawString(ButtonText, Font, brush, (Width - stringSize.Width) / 2, (Height - stringSize.Height) / 2);
         }
 
 
@@ -130,6 +132,16 @@ namespace CaloteirosNuncaMais.Forms.Windows.teste
             set
             {
                 _onHoverTextColor = value;
+                Invalidate();
+            }
+        }
+
+        public string ButtonText
+        {
+            get => _text;
+            set
+            {
+                _text = value;
                 Invalidate();
             }
         }

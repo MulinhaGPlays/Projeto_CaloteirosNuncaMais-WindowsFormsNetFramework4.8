@@ -33,14 +33,16 @@
             // 
             // roundedButton1
             // 
-            this.roundedButton1.BorderColor = System.Drawing.Color.Silver;
-            this.roundedButton1.ButtonColor = System.Drawing.Color.Red;
-            this.roundedButton1.Location = new System.Drawing.Point(82, 63);
+            this.roundedButton1.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButton1.ButtonColor = System.Drawing.Color.Brown;
+            this.roundedButton1.ButtonText = "Batata";
+            this.roundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButton1.Location = new System.Drawing.Point(209, 36);
             this.roundedButton1.Name = "roundedButton1";
             this.roundedButton1.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.roundedButton1.OnHoverButtonColor = System.Drawing.Color.Yellow;
             this.roundedButton1.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.roundedButton1.Size = new System.Drawing.Size(418, 154);
+            this.roundedButton1.Size = new System.Drawing.Size(100, 41);
             this.roundedButton1.TabIndex = 0;
             this.roundedButton1.TextColor = System.Drawing.Color.White;
             // 

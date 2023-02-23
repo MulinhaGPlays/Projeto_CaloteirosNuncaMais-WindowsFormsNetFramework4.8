@@ -371,9 +371,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Blue;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(780, 0);
+            this.panel1.Location = new System.Drawing.Point(792, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 596);
+            this.panel1.Size = new System.Drawing.Size(169, 596);
             this.panel1.TabIndex = 10;
             // 
             // Principal
@@ -386,6 +386,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal";
