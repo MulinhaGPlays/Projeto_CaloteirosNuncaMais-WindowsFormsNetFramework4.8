@@ -5,9 +5,12 @@ using CaloteirosNuncaMais.Forms.Windows.Dialogs;
 using System;
 using System.Data.Entity;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -19,9 +22,9 @@ namespace CaloteirosNuncaMais.Forms.Telas
         // TODO: validações
         // TODO: estilizar
         // TODO: gerar o pdf
-        // TODO: marcar como pago
         private dbEmprestimosEntities _context;
         private IQueryable<Emprestimo> _emprestimos;
+        //private PrivateFontCollection _fontCollection;
 
         private int _skip;
         private int _take;
@@ -32,6 +35,8 @@ namespace CaloteirosNuncaMais.Forms.Telas
 
             _context = new dbEmprestimosEntities();
             _emprestimos = _context.Emprestimos;
+            _fontCollection = new PrivateFontCollection();
+            //_fontCollection.AddFontFile(@"C:\Users\android\Documents\GitHub\WorldSkills\Provas\WSC2019_TP09\Common\Kazan Neft\brand guideline-rgb_Folder\Fonts\Helvetica-Normal.ttf");
 
             _skip = 0;
             _take = 5;
@@ -87,6 +92,25 @@ namespace CaloteirosNuncaMais.Forms.Telas
                         deve += emp.Valor * (decimal)0.01;
                 }
                 this.dataGridView.Rows.Add(emp.Id, emp.Nome, $"R$ {emp.Valor:N2}", emp.Pago, $"R${deve:N2}", "Detalhes", "Deletar");
+
+            }
+            foreach (DataGridViewRow row in this.dataGridView.Rows)
+            {
+                int index = this.dataGridView.Columns["Pago"].Index;
+                switch (row.Cells[index].Value)
+                {
+                    case nameof(EStatus.ATRASADO):
+                        row.Cells[index].Style.BackColor = Color.Red;
+                        break;
+                    case nameof(EStatus.ANDAMENTO):
+                        row.Cells[index].Style.BackColor = Color.Yellow;
+                        break;
+                    case nameof(EStatus.PAGO):
+                        row.Cells[index].Style.BackColor = Color.Green;
+                        break;
+                    default:
+                        break;
+                }
             }
             this.comboBoxPeoples.DataSource = _emprestimos.ToList();
             this.comboBoxPeoples2.DataSource = _emprestimos.ToList();
@@ -124,13 +148,17 @@ namespace CaloteirosNuncaMais.Forms.Telas
 
         private async void SendEmail_Click(object sender, EventArgs e)
         {
+            byte[] array = File.ReadAllBytes(@"C:\Users\android\Documents\GitHub\WorldSkills\20221207_070332_wsc2022_td09_br.pdf");
+            MemoryStream stream = new MemoryStream(array);
+            var anexo = new Attachment(stream, "teste.pdf"); // refazer
+
             var email = new MailAddress(this.comboBoxPeoples.SelectedValue.ToString());
             var content = this.textBoxUrl.Text;
             var emailType = this.checkBoxTypeContent.Checked
                 ? ETypeEmail.AGRADECIMENTO
                 : ETypeEmail.PROCESSAMENTO;
 
-            if (await EmailService.CreateMail(email, content, emailType).Sending()) 
+            if (await EmailService.CreateMail(email, content, emailType, anexo).Sending()) 
                 MessageBox.Show("Email enviado com sucesso!");
             else 
                 MessageBox.Show("Erro ao enviar o Email.");
@@ -240,6 +268,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             form.labelNome.Text = emprestimo.Nome;
             form.labelEmail.Text = emprestimo.Email;
             form.labelStatus.Text = emprestimo.Pago;
+            form.labelPrevisao.Text = emprestimo.DataPrevisao.ToString("dd/MM/yyyy");
             form.labelEmprestado.Text = $"R${userData.Sum(x => x.Valor):N2}";
             form.pictureBoxAssinatura.Image = Properties.Resources.nofigure;
             if (emprestimo.Assinatura != null)

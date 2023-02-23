@@ -41,7 +41,7 @@ namespace CaloteirosNuncaMais.Forms.Services
             catch { }
             return html;
         }
-        public static MailMessage CreateMail(MailAddress email, string content, ETypeEmail emailType)
+        public static MailMessage CreateMail(MailAddress email, string content, ETypeEmail emailType, Attachment anexo)
         {
             MailMessage mail = new MailMessage()
             {
@@ -58,6 +58,7 @@ namespace CaloteirosNuncaMais.Forms.Services
                 BodyTransferEncoding = TransferEncoding.QuotedPrintable
             };
             mail.To.Add(email);
+            mail.Attachments.Add(anexo);
             return mail;
         }
 

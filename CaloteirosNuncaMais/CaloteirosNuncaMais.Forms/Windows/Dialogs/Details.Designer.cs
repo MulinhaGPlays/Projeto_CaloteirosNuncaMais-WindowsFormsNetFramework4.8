@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.chartHistorico = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.labelDevolvido = new System.Windows.Forms.Label();
             this.labelEmprestado = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.buttonMarcarwithPago = new System.Windows.Forms.Button();
             this.pictureBoxAssinatura = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.labelPrevisao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chartHistorico)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -55,10 +57,10 @@
             // 
             // chartHistorico
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartHistorico.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartHistorico.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chartHistorico.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartHistorico.Legends.Add(legend1);
             this.chartHistorico.Location = new System.Drawing.Point(282, 21);
             this.chartHistorico.Name = "chartHistorico";
             this.chartHistorico.Size = new System.Drawing.Size(239, 241);
@@ -67,6 +69,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelPrevisao);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.labelDevolvido);
             this.groupBox1.Controls.Add(this.labelEmprestado);
             this.groupBox1.Controls.Add(this.labelEmail);
@@ -83,6 +87,15 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 148);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Previsão de pagamento:";
             // 
             // labelDevolvido
             // 
@@ -221,8 +234,17 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 28);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Adicioanr Assinatura";
+            this.button1.Text = "Adicionar Assinatura";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // labelPrevisao
+            // 
+            this.labelPrevisao.AutoSize = true;
+            this.labelPrevisao.Location = new System.Drawing.Point(150, 148);
+            this.labelPrevisao.Name = "labelPrevisao";
+            this.labelPrevisao.Size = new System.Drawing.Size(48, 13);
+            this.labelPrevisao.TabIndex = 10;
+            this.labelPrevisao.Text = "Previsão";
             // 
             // Details
             // 
@@ -263,5 +285,7 @@
         public System.Windows.Forms.Button buttonMarcarwithPago;
         public System.Windows.Forms.PictureBox pictureBoxAssinatura;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label labelPrevisao;
     }
 }
