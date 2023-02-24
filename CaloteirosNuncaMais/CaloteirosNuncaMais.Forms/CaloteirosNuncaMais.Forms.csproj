@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\RoundedButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundedButton.Designer.cs">
+      <DependentUpon>RoundedButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\dbEmprestimos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,12 +110,6 @@
     <Compile Include="Windows\teste\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\teste\RoundedButton.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Windows\teste\RoundedButton.Designer.cs">
-      <DependentUpon>RoundedButton.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -157,6 +157,7 @@
     <None Include="Resources\Agradecimento.html" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\IcoMoon-Free.ttf" />
     <None Include="Resources\Processamento.html" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +179,9 @@
       <DependentUpon>dbEmprestimos.edmx</DependentUpon>
       <LastGenOutput>dbEmprestimos.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\1648571588-roxinho-basicos-flutuantes-md-3x.png" />
+    <None Include="Resources\Nubank_logo_2021.png" />
+    <None Include="Resources\8110265-fundo-roxo-ondulado-moderno-gratis-vetor.jpg" />
     <None Include="Resources\nofigure.jpg" />
     <None Include="Resources\lucro.png" />
   </ItemGroup>

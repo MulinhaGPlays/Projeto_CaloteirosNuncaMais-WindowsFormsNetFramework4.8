@@ -1,4 +1,4 @@
-﻿namespace CaloteirosNuncaMais.Forms.Windows.teste
+﻿namespace CaloteirosNuncaMais.Forms.Controls
 {
     partial class RoundedButton
     {

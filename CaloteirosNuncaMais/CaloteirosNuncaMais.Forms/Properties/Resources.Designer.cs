@@ -61,6 +61,16 @@ namespace CaloteirosNuncaMais.Forms.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8110265_fundo_roxo_ondulado_moderno_gratis_vetor {
+            get {
+                object obj = ResourceManager.GetObject("8110265-fundo-roxo-ondulado-moderno-gratis-vetor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional //EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
         ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:v=&quot;urn:schemas-microsoft-com:vml&quot; xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot;&gt;
         ///&lt;head&gt;
@@ -73,7 +83,7 @@ namespace CaloteirosNuncaMais.Forms.Properties {
         ///&lt;/xml&gt;
         ///&lt;![endif]--&gt;
         ///  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
-        ///  &lt;meta name= [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///  [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string Agradecimento {
             get {
@@ -102,6 +112,16 @@ namespace CaloteirosNuncaMais.Forms.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] IcoMoon_Free {
+            get {
+                object obj = ResourceManager.GetObject("IcoMoon_Free", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap lucro {
@@ -122,6 +142,16 @@ namespace CaloteirosNuncaMais.Forms.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Nubank_logo_2021 {
+            get {
+                object obj = ResourceManager.GetObject("Nubank_logo_2021", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional //EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
         ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:v=&quot;urn:schemas-microsoft-com:vml&quot; xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot;&gt;
         ///&lt;head&gt;
@@ -134,7 +164,7 @@ namespace CaloteirosNuncaMais.Forms.Properties {
         ///&lt;/xml&gt;
         ///&lt;![endif]--&gt;
         ///  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
-        ///  &lt;meta name= [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///  [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string Processamento {
             get {

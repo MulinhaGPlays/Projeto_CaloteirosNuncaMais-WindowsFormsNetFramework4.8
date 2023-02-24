@@ -35,3 +35,4 @@ C:\Users\android\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFra
 C:\Users\android\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.exe
 C:\Users\android\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.pdb
 C:\Users\android\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Windows.teste.Form1.resources
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Windows.teste.Form1.resources

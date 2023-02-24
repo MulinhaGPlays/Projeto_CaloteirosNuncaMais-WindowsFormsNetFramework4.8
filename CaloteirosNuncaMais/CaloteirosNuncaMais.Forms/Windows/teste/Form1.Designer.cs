@@ -28,30 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.roundedButton1 = new CaloteirosNuncaMais.Forms.Windows.teste.RoundedButton();
             this.SuspendLayout();
-            // 
-            // roundedButton1
-            // 
-            this.roundedButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButton1.ButtonColor = System.Drawing.Color.Brown;
-            this.roundedButton1.ButtonText = "Batata";
-            this.roundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButton1.Location = new System.Drawing.Point(209, 36);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.roundedButton1.OnHoverButtonColor = System.Drawing.Color.Yellow;
-            this.roundedButton1.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.roundedButton1.Size = new System.Drawing.Size(100, 41);
-            this.roundedButton1.TabIndex = 0;
-            this.roundedButton1.TextColor = System.Drawing.Color.White;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.roundedButton1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -61,7 +44,5 @@
         }
 
         #endregion
-
-        private RoundedButton roundedButton1;
     }
 }

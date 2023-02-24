@@ -25,7 +25,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
         // TODO: gerar o pdf
         private dbEmprestimosEntities _context;
         private IQueryable<Emprestimo> _emprestimos;
-        //private PrivateFontCollection _fontCollection;
+        private PrivateFontCollection _customFonts;
 
         private int _skip;
         private int _take;
@@ -36,12 +36,37 @@ namespace CaloteirosNuncaMais.Forms.Telas
 
             _context = new dbEmprestimosEntities();
             _emprestimos = _context.Emprestimos;
-
-            this.FormBorderStyle = FormBorderStyle.None;
-            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
+            _customFonts = new PrivateFontCollection();
 
             _skip = 0;
             _take = 5;
+
+            byte[] fontData = Properties.Resources.IcoMoon_Free;
+
+            IntPtr fontPtr = Marshal.AllocHGlobal(fontData.Length);
+            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            _customFonts.AddMemoryFont(fontPtr, fontData.Length);
+
+            this.SetRounded();
+            this.SetFont();
+        }
+
+        private void SetRounded()
+        {
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+            this.panel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel.Width, panel.Height, 15, 15));
+            this.panelGerenciar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelGerenciar.Width, panelGerenciar.Height, 15, 15));
+        }
+
+        private void SetFont()
+        {
+            var fontText = new Font(_customFonts.Families[0], 12, FontStyle.Bold);
+            this.roundedButtonMenu.Font = fontText;
+            this.roundedButtonGerenciar.Font = fontText;
+            this.roundedButtonLayouts.Font = fontText;
+            this.roundedButtonConfig.Font = fontText;
+            this.roundedButtonSair.Font = fontText;
+            this.labelCreditos.Font = fontText;
         }
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -321,6 +346,28 @@ namespace CaloteirosNuncaMais.Forms.Telas
                 _context.SaveChanges();
                 MessageBox.Show("Empréstimo deletado!");
             }
+        }
+
+        private void roundedButtonSair_Click(object sender, EventArgs e) => Application.Exit();
+
+        private void roundedButtonMenu_Click(object sender, EventArgs e)
+        {
+            this.panelGerenciar.Visible = false;
+        }
+
+        private void roundedButtonGerenciar_Click(object sender, EventArgs e)
+        {
+            this.panelGerenciar.Visible = !this.panelGerenciar.Visible;
+        }
+
+        private void roundedButtonLayouts_Click(object sender, EventArgs e)
+        {
+            this.panelGerenciar.Visible = false;
+        }
+
+        private void roundedButtonConfig_Click(object sender, EventArgs e)
+        {
+            this.panelGerenciar.Visible = false;
         }
     }
 }

@@ -57,11 +57,22 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonGenerate = new System.Windows.Forms.Button();
             this.comboBoxPeoples2 = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
+            this.labelCreditos = new System.Windows.Forms.Label();
+            this.roundedButtonSair = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonConfig = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonLayouts = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonGerenciar = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonMenu = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelGerenciar = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelGerenciar.SuspendLayout();
             this.SuspendLayout();
             // 
             // SendEmail
@@ -210,7 +221,7 @@
             this.groupBox1.Controls.Add(this.checkBoxTypeContent);
             this.groupBox1.Controls.Add(this.textBoxUrl);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 13);
+            this.groupBox1.Location = new System.Drawing.Point(29, 30);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox1.Size = new System.Drawing.Size(406, 90);
@@ -251,7 +262,7 @@
             this.groupBox2.Controls.Add(this.dataGridView);
             this.groupBox2.Controls.Add(this.buttonNew);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 109);
+            this.groupBox2.Location = new System.Drawing.Point(29, 126);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(673, 199);
             this.groupBox2.TabIndex = 7;
@@ -334,7 +345,7 @@
             // 
             this.groupBox3.Controls.Add(this.buttonGenerate);
             this.groupBox3.Controls.Add(this.comboBoxPeoples2);
-            this.groupBox3.Location = new System.Drawing.Point(424, 13);
+            this.groupBox3.Location = new System.Drawing.Point(441, 30);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(150, 90);
             this.groupBox3.TabIndex = 8;
@@ -367,25 +378,155 @@
             this.comboBoxPeoples2.TabIndex = 6;
             this.comboBoxPeoples2.ValueMember = "Id";
             // 
-            // panel1
+            // panel
             // 
-            this.panel1.BackColor = System.Drawing.Color.Blue;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(792, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(169, 596);
-            this.panel1.TabIndex = 10;
+            this.panel.BackColor = System.Drawing.Color.White;
+            this.panel.Controls.Add(this.labelCreditos);
+            this.panel.Controls.Add(this.roundedButtonSair);
+            this.panel.Controls.Add(this.roundedButtonConfig);
+            this.panel.Controls.Add(this.roundedButtonLayouts);
+            this.panel.Controls.Add(this.roundedButtonGerenciar);
+            this.panel.Controls.Add(this.roundedButtonMenu);
+            this.panel.Controls.Add(this.pictureBox1);
+            this.panel.Location = new System.Drawing.Point(748, 12);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(200, 516);
+            this.panel.TabIndex = 9;
+            // 
+            // labelCreditos
+            // 
+            this.labelCreditos.AutoSize = true;
+            this.labelCreditos.BackColor = System.Drawing.Color.Transparent;
+            this.labelCreditos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCreditos.ForeColor = System.Drawing.Color.DarkViolet;
+            this.labelCreditos.Location = new System.Drawing.Point(28, 469);
+            this.labelCreditos.Name = "labelCreditos";
+            this.labelCreditos.Size = new System.Drawing.Size(149, 20);
+            this.labelCreditos.TabIndex = 11;
+            this.labelCreditos.Text = "Maked by Filaupe";
+            // 
+            // roundedButtonSair
+            // 
+            this.roundedButtonSair.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonSair.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonSair.ButtonText = "Sair";
+            this.roundedButtonSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonSair.Location = new System.Drawing.Point(21, 398);
+            this.roundedButtonSair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonSair.Name = "roundedButtonSair";
+            this.roundedButtonSair.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonSair.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonSair.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonSair.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonSair.TabIndex = 10;
+            this.roundedButtonSair.TextColor = System.Drawing.Color.White;
+            this.roundedButtonSair.Click += new System.EventHandler(this.roundedButtonSair_Click);
+            // 
+            // roundedButtonConfig
+            // 
+            this.roundedButtonConfig.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonConfig.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonConfig.ButtonText = "Configurações";
+            this.roundedButtonConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonConfig.Location = new System.Drawing.Point(21, 338);
+            this.roundedButtonConfig.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonConfig.Name = "roundedButtonConfig";
+            this.roundedButtonConfig.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonConfig.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonConfig.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonConfig.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonConfig.TabIndex = 9;
+            this.roundedButtonConfig.TextColor = System.Drawing.Color.White;
+            this.roundedButtonConfig.Click += new System.EventHandler(this.roundedButtonConfig_Click);
+            // 
+            // roundedButtonLayouts
+            // 
+            this.roundedButtonLayouts.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLayouts.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonLayouts.ButtonText = "Layouts";
+            this.roundedButtonLayouts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonLayouts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonLayouts.Location = new System.Drawing.Point(21, 278);
+            this.roundedButtonLayouts.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonLayouts.Name = "roundedButtonLayouts";
+            this.roundedButtonLayouts.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLayouts.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonLayouts.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonLayouts.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonLayouts.TabIndex = 8;
+            this.roundedButtonLayouts.TextColor = System.Drawing.Color.White;
+            this.roundedButtonLayouts.Click += new System.EventHandler(this.roundedButtonLayouts_Click);
+            // 
+            // roundedButtonGerenciar
+            // 
+            this.roundedButtonGerenciar.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonGerenciar.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonGerenciar.ButtonText = "Gerenciar";
+            this.roundedButtonGerenciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonGerenciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonGerenciar.Location = new System.Drawing.Point(21, 218);
+            this.roundedButtonGerenciar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonGerenciar.Name = "roundedButtonGerenciar";
+            this.roundedButtonGerenciar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonGerenciar.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonGerenciar.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonGerenciar.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonGerenciar.TabIndex = 7;
+            this.roundedButtonGerenciar.TextColor = System.Drawing.Color.White;
+            this.roundedButtonGerenciar.Click += new System.EventHandler(this.roundedButtonGerenciar_Click);
+            // 
+            // roundedButtonMenu
+            // 
+            this.roundedButtonMenu.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonMenu.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonMenu.ButtonText = "Menu";
+            this.roundedButtonMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonMenu.Location = new System.Drawing.Point(21, 158);
+            this.roundedButtonMenu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonMenu.Name = "roundedButtonMenu";
+            this.roundedButtonMenu.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonMenu.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonMenu.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonMenu.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonMenu.TabIndex = 6;
+            this.roundedButtonMenu.TextColor = System.Drawing.Color.White;
+            this.roundedButtonMenu.Click += new System.EventHandler(this.roundedButtonMenu_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CaloteirosNuncaMais.Forms.Properties.Resources.Nubank_logo_2021;
+            this.pictureBox1.Location = new System.Drawing.Point(50, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelGerenciar
+            // 
+            this.panelGerenciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(145)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.panelGerenciar.Controls.Add(this.groupBox1);
+            this.panelGerenciar.Controls.Add(this.groupBox3);
+            this.panelGerenciar.Controls.Add(this.groupBox2);
+            this.panelGerenciar.Location = new System.Drawing.Point(12, 12);
+            this.panelGerenciar.Name = "panelGerenciar";
+            this.panelGerenciar.Size = new System.Drawing.Size(730, 516);
+            this.panelGerenciar.TabIndex = 10;
+            this.panelGerenciar.Visible = false;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(961, 596);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = System.Drawing.Color.BlueViolet;
+            this.BackgroundImage = global::CaloteirosNuncaMais.Forms.Properties.Resources._8110265_fundo_roxo_ondulado_moderno_gratis_vetor;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(960, 540);
+            this.Controls.Add(this.panelGerenciar);
+            this.Controls.Add(this.panel);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -398,6 +539,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelGerenciar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -429,6 +574,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Juros;
         private System.Windows.Forms.DataGridViewButtonColumn Details;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private Controls.RoundedButton roundedButtonSair;
+        private Controls.RoundedButton roundedButtonConfig;
+        private Controls.RoundedButton roundedButtonLayouts;
+        private Controls.RoundedButton roundedButtonGerenciar;
+        private Controls.RoundedButton roundedButtonMenu;
+        private System.Windows.Forms.Label labelCreditos;
+        private System.Windows.Forms.Panel panelGerenciar;
     }
 }
