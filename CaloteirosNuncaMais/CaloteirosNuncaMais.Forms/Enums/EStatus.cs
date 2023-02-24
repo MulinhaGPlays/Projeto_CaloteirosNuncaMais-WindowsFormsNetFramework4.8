@@ -5,5 +5,6 @@
         ATRASADO,
         ANDAMENTO,
         PAGO,
+        CANCELADO
     }
 }

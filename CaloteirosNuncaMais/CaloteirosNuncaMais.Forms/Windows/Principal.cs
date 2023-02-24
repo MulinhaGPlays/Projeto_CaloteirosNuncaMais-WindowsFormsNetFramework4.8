@@ -1,18 +1,16 @@
 ﻿using CaloteirosNuncaMais.Forms.Database;
 using CaloteirosNuncaMais.Forms.Enums;
-using CaloteirosNuncaMais.Forms.Services;
 using CaloteirosNuncaMais.Forms.Windows.Dialogs;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Runtime.InteropServices;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -27,6 +25,8 @@ namespace CaloteirosNuncaMais.Forms.Telas
         private IQueryable<Emprestimo> _emprestimos;
         private PrivateFontCollection _customFonts;
 
+        private int qtdChars = 0;
+
         private int _skip;
         private int _take;
 
@@ -39,7 +39,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             _customFonts = new PrivateFontCollection();
 
             _skip = 0;
-            _take = 5;
+            _take = 12;
 
             byte[] fontData = Properties.Resources.IcoMoon_Free;
 
@@ -48,6 +48,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             _customFonts.AddMemoryFont(fontPtr, fontData.Length);
 
             this.SetRounded();
+            this.LoadChart();
             this.SetFont();
         }
 
@@ -55,18 +56,36 @@ namespace CaloteirosNuncaMais.Forms.Telas
         {
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
             this.panel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel.Width, panel.Height, 15, 15));
+            this.panelTable.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelTable.Width, panelTable.Height, 15, 15));
+            this.panelHeader.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelHeader.Width, panelHeader.Height, 15, 15));
             this.panelGerenciar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelGerenciar.Width, panelGerenciar.Height, 15, 15));
+            this.textBoxSearch.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, textBoxSearch.Width, textBoxSearch.Height, 50, 50));
+            this.comboBoxPeoples.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, comboBoxPeoples.Width, comboBoxPeoples.Height, 2, 2));
+            this.comboBoxType.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, comboBoxType.Width, comboBoxType.Height, 2, 2));
+            this.labelHeader.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, labelHeader.Width, labelHeader.Height, 5, 5));
+            this.dataGridViewPeoples.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dataGridViewPeoples.Width, dataGridViewPeoples.Height, 15, 15));
         }
 
         private void SetFont()
         {
             var fontText = new Font(_customFonts.Families[0], 12, FontStyle.Bold);
+            var fontText2 = new Font(_customFonts.Families[0], 16, FontStyle.Regular);
+            var fontText3 = new Font(_customFonts.Families[0], 12, FontStyle.Regular);
+            var fontText4 = new Font(_customFonts.Families[0], 9, FontStyle.Regular);
+            var fontText5 = new Font(_customFonts.Families[0], 8, FontStyle.Bold);
+
             this.roundedButtonMenu.Font = fontText;
             this.roundedButtonGerenciar.Font = fontText;
             this.roundedButtonLayouts.Font = fontText;
             this.roundedButtonConfig.Font = fontText;
             this.roundedButtonSair.Font = fontText;
             this.labelCreditos.Font = fontText;
+            this.textBoxSearch.Font = fontText2;
+            this.comboBoxPeoples.Font = fontText3;
+            this.comboBoxType.Font = fontText3;
+            this.labelHeader.Font = fontText;
+            this.dataGridViewPeoples.Font = fontText4;
+            this.labelDetalhes.Font = fontText5;
         }
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -85,11 +104,15 @@ namespace CaloteirosNuncaMais.Forms.Telas
             bool min = !(_skip <= 0);
             bool max = !(_skip >= (int)Math.Ceiling(1M * (_emprestimos.Count() / _take)));
 
-            this.buttonFirstPage.Enabled = min;
-            this.buttonPreviousPage.Enabled = min;
+            this.roundedButtonPreviousPage.Enabled = min;
+            this.roundedButtonFirstPage.Enabled = min;
+            this.roundedButtonLastPage.Enabled = max;
+            this.roundedButtonNextPage.Enabled = max;
 
-            this.buttonNextPage.Enabled = max;
-            this.buttonLastPage.Enabled = max;
+            this.roundedButtonPreviousPage.ButtonColor = min ? Color.MediumSlateBlue : Color.DarkSlateBlue;
+            this.roundedButtonFirstPage.ButtonColor = min ? Color.MediumSlateBlue : Color.DarkSlateBlue;
+            this.roundedButtonLastPage.ButtonColor = max ? Color.MediumSlateBlue : Color.DarkSlateBlue;
+            this.roundedButtonNextPage.ButtonColor = max ? Color.MediumSlateBlue : Color.DarkSlateBlue;
         }
         private async Task CheckData()
         {
@@ -110,15 +133,14 @@ namespace CaloteirosNuncaMais.Forms.Telas
             await _context.SaveChangesAsync();
         }
 
-        private void ReloadData(IQueryable<Emprestimo> emprestimos)
+        private void ReloadData(IQueryable<Emprestimo> emprestimos, DataGridView table)
         {
             _emprestimos = emprestimos;
-            this.dataGridView.Rows.Clear();
-
+            this.dataGridViewPeoples.Rows.Clear();
             foreach (var emp in _emprestimos
                 .AsNoTracking()
                 .OrderBy(x => x.Nome)
-                .Skip(_skip*_take)
+                .Skip(_skip * _take)
                 .Take(_take)
                 .ToList())
             {
@@ -128,29 +150,31 @@ namespace CaloteirosNuncaMais.Forms.Telas
                     for (int i = 0; i < emp.MesesAtrasados; i++)
                         deve += emp.Valor * (decimal)0.01;
                 }
-                this.dataGridView.Rows.Add(emp.Id, emp.Nome, $"R$ {emp.Valor:N2}", emp.Pago, $"R${deve:N2}", "Detalhes", "Deletar");
-
+                table.Rows.Add(emp.Id, emp.Nome, $"R$ {emp.Valor:N2}", emp.Pago, $"R${deve:N2}", "Detalhes", "Deletar");
             }
-            foreach (DataGridViewRow row in this.dataGridView.Rows)
+            foreach (DataGridViewRow row in table.Rows)
             {
-                int index = this.dataGridView.Columns["Pago"].Index;
+                int index = table.Columns["Pago"].Index;
                 switch (row.Cells[index].Value)
                 {
                     case nameof(EStatus.ATRASADO):
-                        row.Cells[index].Style.BackColor = Color.Red;
+                        row.Cells[index].Style.BackColor = Color.Salmon;
                         break;
                     case nameof(EStatus.ANDAMENTO):
                         row.Cells[index].Style.BackColor = Color.Yellow;
                         break;
                     case nameof(EStatus.PAGO):
-                        row.Cells[index].Style.BackColor = Color.Green;
+                        row.Cells[index].Style.BackColor = Color.PaleGreen;
+                        break;
+                    case nameof(EStatus.CANCELADO):
+                        row.Cells[index].Style.BackColor = Color.LightGray;
                         break;
                     default:
                         break;
                 }
             }
-            this.comboBoxPeoples.DataSource = _emprestimos.ToList();
-            this.comboBoxPeoples2.DataSource = _emprestimos.ToList();
+            this.LoadChartData(_emprestimos, this.chart);
+            this.SetAutoCompleteText();
             this.CheckPage();
         }
 
@@ -159,7 +183,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             switch (action)
             {
                 case EPaginationActions.ULTIMO:
-                    _skip = (int)Math.Ceiling(1M * (_emprestimos.Count()/_take));
+                    _skip = (int)Math.Ceiling(1M * (_emprestimos.Count() / _take));
                     break;
                 case EPaginationActions.PROXIMO:
                     _skip++;
@@ -172,15 +196,42 @@ namespace CaloteirosNuncaMais.Forms.Telas
                     break;
             }
             this.CheckPage();
-            this.ReloadData(_emprestimos);
+            this.ReloadData(_emprestimos, this.dataGridViewPeoples);
+        }
+
+        private IQueryable<Emprestimo> DistinctByEmail() => _context.Emprestimos.GroupBy(x => x.Email).Select(g => g.FirstOrDefault());
+
+        private void SetAutoCompleteText()
+        {
+            var AutoCompleteList = new AutoCompleteStringCollection();
+            AutoCompleteList.AddRange(DistinctByEmail().Select(x => x.Nome).ToArray());
+            this.textBoxSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.textBoxSearch.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.textBoxSearch.AutoCompleteCustomSource = AutoCompleteList;
         }
 
         private async void Principal_Load(object sender, EventArgs e)
         {
             await this.CheckData();
-            
-            this.ReloadData(_context.Emprestimos);
+
+            this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
+            this.LoadComboBox();
             this.CheckPage();
+        }
+
+        private void LoadChart()
+        {
+            this.chart.Series.Add("Peoples");
+            this.chart.Series[0].ChartType = SeriesChartType.Pie;
+        }
+
+        private void LoadComboBox()
+        {
+            this.comboBoxPeoples.DataSource = this.DistinctByEmail().ToList();
+            this.comboBoxPeoples.ValueMember = "Email";
+            this.comboBoxPeoples.DisplayMember = "Nome";
+
+            this.comboBoxType.DataSource = new List<EStatus>() { EStatus.PAGO, EStatus.ANDAMENTO, EStatus.ATRASADO, EStatus.CANCELADO };
         }
 
         private async void SendEmail_Click(object sender, EventArgs e)
@@ -189,102 +240,27 @@ namespace CaloteirosNuncaMais.Forms.Telas
             MemoryStream stream = new MemoryStream(array);
             var anexo = new Attachment(stream, "teste.pdf"); // refazer
 
-            var email = new MailAddress(this.comboBoxPeoples.SelectedValue.ToString());
-            var content = this.textBoxUrl.Text;
-            var emailType = this.checkBoxTypeContent.Checked
-                ? ETypeEmail.AGRADECIMENTO
-                : ETypeEmail.PROCESSAMENTO;
+            //var email = new MailAddress(this.comboBoxPeoples.SelectedValue.ToString());
+            //var content = this.textBoxUrl.Text;
+            //var emailType = this.checkBoxTypeContent.Checked
+            //    ? ETypeEmail.AGRADECIMENTO
+            //    : ETypeEmail.PROCESSAMENTO;
 
-            if (await EmailService.CreateMail(email, content, emailType, anexo).Sending()) 
-                MessageBox.Show("Email enviado com sucesso!");
-            else 
-                MessageBox.Show("Erro ao enviar o Email.");
+            //if (await EmailService.CreateMail(email, content, emailType, anexo).Sending()) 
+            //    MessageBox.Show("Email enviado com sucesso!");
+            //else 
+            //    MessageBox.Show("Erro ao enviar o Email.");
         }
-
-        private void buttonNew_Click(object sender, EventArgs e)
-        {
-            using (var form = new CreateOrEdit())
-            {
-                form.Text = "Novo Empréstimo";
-                form.buttonAdd.Text = "Adicionar";
-
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    string priceNotMasked = form.maskedTextBoxPrice.Text
-                        .Replace("R$", String.Empty)
-                        .Replace("_", String.Empty);
-
-                    decimal price = decimal.Parse(priceNotMasked);
-
-                    var model = new Emprestimo()
-                    {
-                        Nome = form.textBoxName.Text,
-                        Email = form.textBoxEmail.Text,
-                        Valor = price,
-                        DataEmp = form.dateTimePickerEmprestimo.Value,
-                        DataPrevisao = form.dateTimePickerPrevision.Value,
-                        Pago = nameof(EStatus.ANDAMENTO),
-                        Assinatura = null,
-                        MesesAtrasados = 0,
-                    };
-
-                    try
-                    {
-                        _context.Emprestimos.Add(model);
-                        _context.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Um erro ocorreu ao salvar no \"{model.Nome}\" banco de dados, tente novamente mais tarde. Erro: {ex.Message}");
-                    }
-                    this.ReloadData(_context.Emprestimos);
-                }
-            }
-        }
-
-        private void buttonGenerate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonFirstPage_Click(object sender, EventArgs e)
-            => this.PaginationActions(EPaginationActions.PRIMEIRO);
-        private void buttonPreviousPage_Click(object sender, EventArgs e)
-            => this.PaginationActions(EPaginationActions.ANTERIOR);
-        private void buttonNextPage_Click(object sender, EventArgs e)
-            => this.PaginationActions(EPaginationActions.PROXIMO);
-        private void buttonLastPage_Click(object sender, EventArgs e)
-            => this.PaginationActions(EPaginationActions.ULTIMO);
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            string text = this.textBoxSearch.Text;
-            if (String.IsNullOrWhiteSpace(text)) this.ReloadData(_context.Emprestimos);
-            else this.ReloadData(_emprestimos.Where(x => x.Nome.Contains(text)));
-        }
-        private void checkBoxTypeContent_CheckStateChanged(object sender, EventArgs e)
-        {
-            this.textBoxUrl.Enabled = !this.checkBoxTypeContent.Checked;
-        }
-
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 5 || e.ColumnIndex == 6)
+            if (this.textBoxSearch.Text.Length > qtdChars)
             {
-                var emprestimo = (int)this.dataGridView.Rows[e.RowIndex].Cells[0].Value;
-                if (e.ColumnIndex == 5) //Detalhes
-                    this.EmprestimoDetails(emprestimo);
-                if (e.ColumnIndex == 6)
-                {
-                    this.EmprestimoDelete(emprestimo);
-                    this.ReloadData(_emprestimos);
-                }
+                string text = this.textBoxSearch.Text;
+                if (String.IsNullOrWhiteSpace(text)) this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
+                else this.ReloadData(_emprestimos.Where(x => x.Nome.Contains(text)), this.dataGridViewPeoples);
             }
-        }
-
-        private void EmprestimoEdit()
-        {
-
+            qtdChars = this.textBoxSearch.Text.Length;
         }
 
         private void EmprestimoDetails(int id)
@@ -298,7 +274,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
                 var emp = _context.Emprestimos.Find(selecteId);
                 emp.Pago = nameof(EStatus.PAGO);
                 _context.SaveChanges();
-                this.ReloadData(_emprestimos);
+                this.ReloadData(_emprestimos, this.dataGridViewPeoples);
             }
 
             form.Text = $"Detalhes de {emprestimo.Nome}";
@@ -358,6 +334,9 @@ namespace CaloteirosNuncaMais.Forms.Telas
         private void roundedButtonGerenciar_Click(object sender, EventArgs e)
         {
             this.panelGerenciar.Visible = !this.panelGerenciar.Visible;
+            this.comboBoxType.Text = "Selecione um tipo . . .";
+            this.comboBoxPeoples.Text = "Selecione uma pessoa . . .";
+            this.roundedButtonLimpar_Click(sender, e);
         }
 
         private void roundedButtonLayouts_Click(object sender, EventArgs e)
@@ -369,5 +348,84 @@ namespace CaloteirosNuncaMais.Forms.Telas
         {
             this.panelGerenciar.Visible = false;
         }
+
+        private void roundedButtonNew_Click(object sender, EventArgs e)
+        {
+            using (var form = new CreateOrEdit())
+            {
+                form.Text = "Novo Empréstimo";
+                form.buttonAdd.Text = "Adicionar";
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    string priceNotMasked = form.maskedTextBoxPrice.Text
+                        .Replace("R$", String.Empty)
+                        .Replace("_", String.Empty);
+
+                    decimal price = decimal.Parse(priceNotMasked);
+
+                    var model = new Emprestimo()
+                    {
+                        Nome = form.textBoxName.Text,
+                        Email = form.textBoxEmail.Text,
+                        Valor = price,
+                        DataEmp = form.dateTimePickerEmprestimo.Value,
+                        DataPrevisao = form.dateTimePickerPrevision.Value,
+                        Pago = nameof(EStatus.ANDAMENTO),
+                        Assinatura = null,
+                        MesesAtrasados = 0,
+                    };
+
+                    try
+                    {
+                        _context.Emprestimos.Add(model);
+                        _context.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Um erro ocorreu ao salvar no \"{model.Nome}\" banco de dados, tente novamente mais tarde. Erro: {ex.Message}");
+                    }
+                    this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
+                }
+            }
+        }
+
+        private void roundedButtonLimpar_Click(object sender, EventArgs e)
+        {
+            this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
+            this.comboBoxType.Text = "Selecione um tipo . . .";
+            this.comboBoxPeoples.Text = "Selecione uma pessoa . . .";
+        }
+
+        private void comboBoxPeoples_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var email = this.comboBoxPeoples.SelectedValue as string;
+            this.ReloadData(_context.Emprestimos.Where(x => x.Email == email), this.dataGridViewPeoples);
+        }
+
+        private void comboBoxType_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var status = this.comboBoxType.SelectedText as string;
+            this.ReloadData(_context.Emprestimos.Where(x => x.Pago == status), this.dataGridViewPeoples);
+        }
+
+        private void LoadChartData(IQueryable<Emprestimo> lista, Chart chart)
+        {
+            chart.Series[0].Points.Clear();
+            chart.Series[0].Points.AddY(lista.Count(x => x.Pago == nameof(EStatus.PAGO)));
+            chart.Series[0].Points[0].Color = Color.PaleGreen;
+            chart.Series[0].Points.AddY(lista.Count(x => x.Pago == nameof(EStatus.ANDAMENTO)));
+            chart.Series[0].Points[1].Color = Color.Yellow;
+            chart.Series[0].Points.AddY(lista.Count(x => x.Pago == nameof(EStatus.ATRASADO)));
+            chart.Series[0].Points[2].Color = Color.Salmon;
+            chart.Series[0].Points.AddY(lista.Count(x => x.Pago == nameof(EStatus.CANCELADO)));
+            chart.Series[0].Points[3].Color = Color.LightGray;
+        }
+
+        private void roundedButtonNextPage_Click(object sender, EventArgs e) => this.PaginationActions(EPaginationActions.PROXIMO);
+        private void roundedButtonLastPage_Click(object sender, EventArgs e) => this.PaginationActions(EPaginationActions.ULTIMO);
+
+        private void roundedButtonPreviousPage_Click(object sender, EventArgs e) => this.PaginationActions(EPaginationActions.ANTERIOR);
+        private void roundedButtonFirstPage_Click(object sender, EventArgs e) => this.PaginationActions(EPaginationActions.PRIMEIRO);
     }
 }

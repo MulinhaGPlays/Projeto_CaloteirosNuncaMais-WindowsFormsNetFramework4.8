@@ -31,32 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            this.SendEmail = new System.Windows.Forms.Button();
-            this.textBoxUrl = new System.Windows.Forms.TextBox();
-            this.checkBoxTypeContent = new System.Windows.Forms.CheckBox();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Deve = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Juros = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Details = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonNew = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxPeoples = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonPreviousPage = new System.Windows.Forms.Button();
-            this.buttonFirstPage = new System.Windows.Forms.Button();
-            this.buttonNextPage = new System.Windows.Forms.Button();
-            this.buttonLastPage = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonGenerate = new System.Windows.Forms.Button();
-            this.comboBoxPeoples2 = new System.Windows.Forms.ComboBox();
             this.panel = new System.Windows.Forms.Panel();
             this.labelCreditos = new System.Windows.Forms.Label();
             this.roundedButtonSair = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
@@ -66,317 +42,38 @@
             this.roundedButtonMenu = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGerenciar = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.roundedButtonLimpar = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.panelTable = new System.Windows.Forms.Panel();
+            this.labelDetalhes = new System.Windows.Forms.Label();
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.labelHeader = new System.Windows.Forms.Label();
+            this.dataGridViewPeoples = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Juros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roundedButtonFirstPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonNew = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonPreviousPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonLastPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonNextPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.comboBoxPeoples = new System.Windows.Forms.ComboBox();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGerenciar.SuspendLayout();
+            this.panelTable.SuspendLayout();
+            this.panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPeoples)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
-            // 
-            // SendEmail
-            // 
-            this.SendEmail.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.SendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SendEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendEmail.ForeColor = System.Drawing.Color.Black;
-            this.SendEmail.Location = new System.Drawing.Point(6, 54);
-            this.SendEmail.Name = "SendEmail";
-            this.SendEmail.Size = new System.Drawing.Size(89, 26);
-            this.SendEmail.TabIndex = 0;
-            this.SendEmail.Text = "Enviar";
-            this.SendEmail.UseVisualStyleBackColor = false;
-            this.SendEmail.Click += new System.EventHandler(this.SendEmail_Click);
-            // 
-            // textBoxUrl
-            // 
-            this.textBoxUrl.BackColor = System.Drawing.Color.Moccasin;
-            this.textBoxUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUrl.Location = new System.Drawing.Point(88, 21);
-            this.textBoxUrl.Name = "textBoxUrl";
-            this.textBoxUrl.Size = new System.Drawing.Size(311, 26);
-            this.textBoxUrl.TabIndex = 2;
-            // 
-            // checkBoxTypeContent
-            // 
-            this.checkBoxTypeContent.AutoSize = true;
-            this.checkBoxTypeContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxTypeContent.Location = new System.Drawing.Point(102, 58);
-            this.checkBoxTypeContent.Name = "checkBoxTypeContent";
-            this.checkBoxTypeContent.Size = new System.Drawing.Size(118, 20);
-            this.checkBoxTypeContent.TabIndex = 3;
-            this.checkBoxTypeContent.Text = "Agradecimento";
-            this.checkBoxTypeContent.UseVisualStyleBackColor = true;
-            this.checkBoxTypeContent.CheckStateChanged += new System.EventHandler(this.checkBoxTypeContent_CheckStateChanged);
-            // 
-            // dataGridView
-            // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.BackgroundColor = System.Drawing.Color.Moccasin;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Nome,
-            this.Deve,
-            this.Pago,
-            this.Juros,
-            this.Details,
-            this.Delete});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView.GridColor = System.Drawing.Color.DarkGreen;
-            this.dataGridView.Location = new System.Drawing.Point(6, 56);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView.Size = new System.Drawing.Size(661, 136);
-            this.dataGridView.TabIndex = 4;
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 180;
-            // 
-            // Deve
-            // 
-            this.Deve.HeaderText = "Deve";
-            this.Deve.Name = "Deve";
-            this.Deve.ReadOnly = true;
-            // 
-            // Pago
-            // 
-            this.Pago.HeaderText = "Pago";
-            this.Pago.Name = "Pago";
-            this.Pago.ReadOnly = true;
-            // 
-            // Juros
-            // 
-            this.Juros.HeaderText = "Juros";
-            this.Juros.Name = "Juros";
-            this.Juros.ReadOnly = true;
-            // 
-            // Details
-            // 
-            this.Details.HeaderText = "";
-            this.Details.Name = "Details";
-            this.Details.ReadOnly = true;
-            this.Details.Width = 75;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Width = 62;
-            // 
-            // buttonNew
-            // 
-            this.buttonNew.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNew.Location = new System.Drawing.Point(6, 21);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(84, 29);
-            this.buttonNew.TabIndex = 5;
-            this.buttonNew.Text = "Novo";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.LawnGreen;
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBoxPeoples);
-            this.groupBox1.Controls.Add(this.SendEmail);
-            this.groupBox1.Controls.Add(this.checkBoxTypeContent);
-            this.groupBox1.Controls.Add(this.textBoxUrl);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(29, 30);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(406, 90);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Enviar Email";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Url do PDF:";
-            // 
-            // comboBoxPeoples
-            // 
-            this.comboBoxPeoples.BackColor = System.Drawing.Color.Moccasin;
-            this.comboBoxPeoples.DisplayMember = "Nome";
-            this.comboBoxPeoples.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxPeoples.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxPeoples.FormattingEnabled = true;
-            this.comboBoxPeoples.Location = new System.Drawing.Point(226, 56);
-            this.comboBoxPeoples.Name = "comboBoxPeoples";
-            this.comboBoxPeoples.Size = new System.Drawing.Size(174, 24);
-            this.comboBoxPeoples.TabIndex = 4;
-            this.comboBoxPeoples.ValueMember = "Email";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBoxSearch);
-            this.groupBox2.Controls.Add(this.buttonPreviousPage);
-            this.groupBox2.Controls.Add(this.buttonFirstPage);
-            this.groupBox2.Controls.Add(this.buttonNextPage);
-            this.groupBox2.Controls.Add(this.buttonLastPage);
-            this.groupBox2.Controls.Add(this.dataGridView);
-            this.groupBox2.Controls.Add(this.buttonNew);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(29, 126);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(673, 199);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Gerenciar Empréstimos";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(121, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Pesquisar:";
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.BackColor = System.Drawing.Color.Moccasin;
-            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.Location = new System.Drawing.Point(198, 25);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(244, 22);
-            this.textBoxSearch.TabIndex = 10;
-            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
-            // 
-            // buttonPreviousPage
-            // 
-            this.buttonPreviousPage.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.buttonPreviousPage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonPreviousPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPreviousPage.Location = new System.Drawing.Point(524, 24);
-            this.buttonPreviousPage.Name = "buttonPreviousPage";
-            this.buttonPreviousPage.Size = new System.Drawing.Size(38, 23);
-            this.buttonPreviousPage.TabIndex = 9;
-            this.buttonPreviousPage.Text = "<";
-            this.buttonPreviousPage.UseVisualStyleBackColor = false;
-            this.buttonPreviousPage.Click += new System.EventHandler(this.buttonPreviousPage_Click);
-            // 
-            // buttonFirstPage
-            // 
-            this.buttonFirstPage.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.buttonFirstPage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonFirstPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFirstPage.Location = new System.Drawing.Point(480, 24);
-            this.buttonFirstPage.Name = "buttonFirstPage";
-            this.buttonFirstPage.Size = new System.Drawing.Size(38, 23);
-            this.buttonFirstPage.TabIndex = 8;
-            this.buttonFirstPage.Text = "<<";
-            this.buttonFirstPage.UseVisualStyleBackColor = false;
-            this.buttonFirstPage.Click += new System.EventHandler(this.buttonFirstPage_Click);
-            // 
-            // buttonNextPage
-            // 
-            this.buttonNextPage.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.buttonNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNextPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextPage.Location = new System.Drawing.Point(585, 24);
-            this.buttonNextPage.Name = "buttonNextPage";
-            this.buttonNextPage.Size = new System.Drawing.Size(38, 23);
-            this.buttonNextPage.TabIndex = 7;
-            this.buttonNextPage.Text = ">";
-            this.buttonNextPage.UseVisualStyleBackColor = false;
-            this.buttonNextPage.Click += new System.EventHandler(this.buttonNextPage_Click);
-            // 
-            // buttonLastPage
-            // 
-            this.buttonLastPage.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.buttonLastPage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonLastPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLastPage.Location = new System.Drawing.Point(629, 24);
-            this.buttonLastPage.Name = "buttonLastPage";
-            this.buttonLastPage.Size = new System.Drawing.Size(38, 23);
-            this.buttonLastPage.TabIndex = 6;
-            this.buttonLastPage.Text = ">>";
-            this.buttonLastPage.UseVisualStyleBackColor = false;
-            this.buttonLastPage.Click += new System.EventHandler(this.buttonLastPage_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.buttonGenerate);
-            this.groupBox3.Controls.Add(this.comboBoxPeoples2);
-            this.groupBox3.Location = new System.Drawing.Point(441, 30);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(150, 90);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Gerar PDF";
-            // 
-            // buttonGenerate
-            // 
-            this.buttonGenerate.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.buttonGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGenerate.Location = new System.Drawing.Point(30, 54);
-            this.buttonGenerate.Name = "buttonGenerate";
-            this.buttonGenerate.Size = new System.Drawing.Size(89, 26);
-            this.buttonGenerate.TabIndex = 6;
-            this.buttonGenerate.Text = "Gerar";
-            this.buttonGenerate.UseVisualStyleBackColor = false;
-            this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
-            // 
-            // comboBoxPeoples2
-            // 
-            this.comboBoxPeoples2.BackColor = System.Drawing.Color.Moccasin;
-            this.comboBoxPeoples2.DisplayMember = "Nome";
-            this.comboBoxPeoples2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxPeoples2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxPeoples2.FormattingEnabled = true;
-            this.comboBoxPeoples2.Location = new System.Drawing.Point(6, 19);
-            this.comboBoxPeoples2.Name = "comboBoxPeoples2";
-            this.comboBoxPeoples2.Size = new System.Drawing.Size(138, 24);
-            this.comboBoxPeoples2.TabIndex = 6;
-            this.comboBoxPeoples2.ValueMember = "Id";
             // 
             // panel
             // 
@@ -388,9 +85,9 @@
             this.panel.Controls.Add(this.roundedButtonGerenciar);
             this.panel.Controls.Add(this.roundedButtonMenu);
             this.panel.Controls.Add(this.pictureBox1);
-            this.panel.Location = new System.Drawing.Point(748, 12);
+            this.panel.Location = new System.Drawing.Point(764, 12);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(200, 516);
+            this.panel.Size = new System.Drawing.Size(184, 516);
             this.panel.TabIndex = 9;
             // 
             // labelCreditos
@@ -399,7 +96,7 @@
             this.labelCreditos.BackColor = System.Drawing.Color.Transparent;
             this.labelCreditos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCreditos.ForeColor = System.Drawing.Color.DarkViolet;
-            this.labelCreditos.Location = new System.Drawing.Point(28, 469);
+            this.labelCreditos.Location = new System.Drawing.Point(21, 468);
             this.labelCreditos.Name = "labelCreditos";
             this.labelCreditos.Size = new System.Drawing.Size(149, 20);
             this.labelCreditos.TabIndex = 11;
@@ -418,7 +115,7 @@
             this.roundedButtonSair.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.roundedButtonSair.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
             this.roundedButtonSair.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonSair.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonSair.Size = new System.Drawing.Size(145, 45);
             this.roundedButtonSair.TabIndex = 10;
             this.roundedButtonSair.TextColor = System.Drawing.Color.White;
             this.roundedButtonSair.Click += new System.EventHandler(this.roundedButtonSair_Click);
@@ -436,7 +133,7 @@
             this.roundedButtonConfig.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.roundedButtonConfig.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
             this.roundedButtonConfig.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonConfig.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonConfig.Size = new System.Drawing.Size(145, 45);
             this.roundedButtonConfig.TabIndex = 9;
             this.roundedButtonConfig.TextColor = System.Drawing.Color.White;
             this.roundedButtonConfig.Click += new System.EventHandler(this.roundedButtonConfig_Click);
@@ -454,7 +151,7 @@
             this.roundedButtonLayouts.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.roundedButtonLayouts.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
             this.roundedButtonLayouts.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonLayouts.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonLayouts.Size = new System.Drawing.Size(145, 45);
             this.roundedButtonLayouts.TabIndex = 8;
             this.roundedButtonLayouts.TextColor = System.Drawing.Color.White;
             this.roundedButtonLayouts.Click += new System.EventHandler(this.roundedButtonLayouts_Click);
@@ -472,7 +169,7 @@
             this.roundedButtonGerenciar.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.roundedButtonGerenciar.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
             this.roundedButtonGerenciar.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonGerenciar.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonGerenciar.Size = new System.Drawing.Size(145, 45);
             this.roundedButtonGerenciar.TabIndex = 7;
             this.roundedButtonGerenciar.TextColor = System.Drawing.Color.White;
             this.roundedButtonGerenciar.Click += new System.EventHandler(this.roundedButtonGerenciar_Click);
@@ -490,7 +187,7 @@
             this.roundedButtonMenu.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.roundedButtonMenu.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
             this.roundedButtonMenu.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonMenu.Size = new System.Drawing.Size(159, 45);
+            this.roundedButtonMenu.Size = new System.Drawing.Size(145, 45);
             this.roundedButtonMenu.TabIndex = 6;
             this.roundedButtonMenu.TextColor = System.Drawing.Color.White;
             this.roundedButtonMenu.Click += new System.EventHandler(this.roundedButtonMenu_Click);
@@ -498,7 +195,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CaloteirosNuncaMais.Forms.Properties.Resources.Nubank_logo_2021;
-            this.pictureBox1.Location = new System.Drawing.Point(50, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(43, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -507,15 +204,361 @@
             // 
             // panelGerenciar
             // 
-            this.panelGerenciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(145)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.panelGerenciar.Controls.Add(this.groupBox1);
-            this.panelGerenciar.Controls.Add(this.groupBox3);
-            this.panelGerenciar.Controls.Add(this.groupBox2);
+            this.panelGerenciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(185)))), ((int)(((byte)(90)))), ((int)(((byte)(250)))));
+            this.panelGerenciar.Controls.Add(this.roundedButtonLimpar);
+            this.panelGerenciar.Controls.Add(this.panelTable);
+            this.panelGerenciar.Controls.Add(this.label4);
+            this.panelGerenciar.Controls.Add(this.chart);
+            this.panelGerenciar.Controls.Add(this.label3);
+            this.panelGerenciar.Controls.Add(this.label2);
+            this.panelGerenciar.Controls.Add(this.label1);
+            this.panelGerenciar.Controls.Add(this.comboBoxType);
+            this.panelGerenciar.Controls.Add(this.textBoxSearch);
+            this.panelGerenciar.Controls.Add(this.comboBoxPeoples);
             this.panelGerenciar.Location = new System.Drawing.Point(12, 12);
             this.panelGerenciar.Name = "panelGerenciar";
-            this.panelGerenciar.Size = new System.Drawing.Size(730, 516);
+            this.panelGerenciar.Size = new System.Drawing.Size(746, 516);
             this.panelGerenciar.TabIndex = 10;
             this.panelGerenciar.Visible = false;
+            // 
+            // roundedButtonLimpar
+            // 
+            this.roundedButtonLimpar.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLimpar.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLimpar.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonLimpar.ButtonText = "Limpar";
+            this.roundedButtonLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonLimpar.Location = new System.Drawing.Point(638, 171);
+            this.roundedButtonLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonLimpar.Name = "roundedButtonLimpar";
+            this.roundedButtonLimpar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLimpar.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonLimpar.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonLimpar.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonLimpar.TabIndex = 18;
+            this.roundedButtonLimpar.TextColor = System.Drawing.Color.White;
+            this.roundedButtonLimpar.Click += new System.EventHandler(this.roundedButtonLimpar_Click);
+            // 
+            // panelTable
+            // 
+            this.panelTable.BackColor = System.Drawing.Color.White;
+            this.panelTable.Controls.Add(this.labelDetalhes);
+            this.panelTable.Controls.Add(this.panelHeader);
+            this.panelTable.Controls.Add(this.dataGridViewPeoples);
+            this.panelTable.Controls.Add(this.roundedButtonFirstPage);
+            this.panelTable.Controls.Add(this.roundedButtonNew);
+            this.panelTable.Controls.Add(this.roundedButtonPreviousPage);
+            this.panelTable.Controls.Add(this.roundedButtonLastPage);
+            this.panelTable.Controls.Add(this.roundedButtonNextPage);
+            this.panelTable.Location = new System.Drawing.Point(15, 18);
+            this.panelTable.Name = "panelTable";
+            this.panelTable.Size = new System.Drawing.Size(406, 480);
+            this.panelTable.TabIndex = 17;
+            // 
+            // labelDetalhes
+            // 
+            this.labelDetalhes.AutoSize = true;
+            this.labelDetalhes.BackColor = System.Drawing.Color.Transparent;
+            this.labelDetalhes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDetalhes.ForeColor = System.Drawing.Color.DarkViolet;
+            this.labelDetalhes.Location = new System.Drawing.Point(23, 463);
+            this.labelDetalhes.Name = "labelDetalhes";
+            this.labelDetalhes.Size = new System.Drawing.Size(363, 13);
+            this.labelDetalhes.TabIndex = 18;
+            this.labelDetalhes.Text = "Clique duas vezes no empréstimo para visualizar seus detalhes";
+            // 
+            // panelHeader
+            // 
+            this.panelHeader.BackColor = System.Drawing.Color.DarkViolet;
+            this.panelHeader.Controls.Add(this.labelHeader);
+            this.panelHeader.Location = new System.Drawing.Point(20, 14);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(368, 33);
+            this.panelHeader.TabIndex = 17;
+            // 
+            // labelHeader
+            // 
+            this.labelHeader.AutoSize = true;
+            this.labelHeader.BackColor = System.Drawing.Color.Transparent;
+            this.labelHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHeader.ForeColor = System.Drawing.Color.White;
+            this.labelHeader.Location = new System.Drawing.Point(18, 7);
+            this.labelHeader.Name = "labelHeader";
+            this.labelHeader.Size = new System.Drawing.Size(384, 20);
+            this.labelHeader.TabIndex = 20;
+            this.labelHeader.Text = "Nome            Valor               Status           Juros";
+            // 
+            // dataGridViewPeoples
+            // 
+            this.dataGridViewPeoples.AllowUserToAddRows = false;
+            this.dataGridViewPeoples.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Thistle;
+            this.dataGridViewPeoples.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewPeoples.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewPeoples.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewPeoples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewPeoples.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Plum;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPeoples.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewPeoples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPeoples.ColumnHeadersVisible = false;
+            this.dataGridViewPeoples.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Nome,
+            this.Valor,
+            this.Pago,
+            this.Juros});
+            this.dataGridViewPeoples.GridColor = System.Drawing.Color.White;
+            this.dataGridViewPeoples.Location = new System.Drawing.Point(20, 53);
+            this.dataGridViewPeoples.Name = "dataGridViewPeoples";
+            this.dataGridViewPeoples.ReadOnly = true;
+            this.dataGridViewPeoples.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataGridViewPeoples.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPeoples.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewPeoples.RowHeadersVisible = false;
+            this.dataGridViewPeoples.RowTemplate.DividerHeight = 1;
+            this.dataGridViewPeoples.RowTemplate.Height = 30;
+            this.dataGridViewPeoples.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPeoples.Size = new System.Drawing.Size(368, 360);
+            this.dataGridViewPeoples.TabIndex = 0;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 88;
+            // 
+            // Valor
+            // 
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            // 
+            // Pago
+            // 
+            this.Pago.HeaderText = "Status";
+            this.Pago.Name = "Pago";
+            this.Pago.ReadOnly = true;
+            // 
+            // Juros
+            // 
+            this.Juros.HeaderText = "Juros";
+            this.Juros.Name = "Juros";
+            this.Juros.ReadOnly = true;
+            this.Juros.Width = 80;
+            // 
+            // roundedButtonFirstPage
+            // 
+            this.roundedButtonFirstPage.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonFirstPage.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonFirstPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonFirstPage.ButtonText = "<<";
+            this.roundedButtonFirstPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonFirstPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonFirstPage.Location = new System.Drawing.Point(20, 431);
+            this.roundedButtonFirstPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonFirstPage.Name = "roundedButtonFirstPage";
+            this.roundedButtonFirstPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonFirstPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonFirstPage.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonFirstPage.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonFirstPage.TabIndex = 16;
+            this.roundedButtonFirstPage.TextColor = System.Drawing.Color.White;
+            this.roundedButtonFirstPage.Click += new System.EventHandler(this.roundedButtonFirstPage_Click);
+            // 
+            // roundedButtonNew
+            // 
+            this.roundedButtonNew.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNew.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNew.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonNew.ButtonText = "Novo";
+            this.roundedButtonNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonNew.Location = new System.Drawing.Point(154, 426);
+            this.roundedButtonNew.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.roundedButtonNew.Name = "roundedButtonNew";
+            this.roundedButtonNew.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNew.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonNew.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonNew.Size = new System.Drawing.Size(100, 39);
+            this.roundedButtonNew.TabIndex = 12;
+            this.roundedButtonNew.TextColor = System.Drawing.Color.White;
+            this.roundedButtonNew.Click += new System.EventHandler(this.roundedButtonNew_Click);
+            // 
+            // roundedButtonPreviousPage
+            // 
+            this.roundedButtonPreviousPage.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonPreviousPage.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonPreviousPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonPreviousPage.ButtonText = "<";
+            this.roundedButtonPreviousPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonPreviousPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonPreviousPage.Location = new System.Drawing.Point(86, 431);
+            this.roundedButtonPreviousPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonPreviousPage.Name = "roundedButtonPreviousPage";
+            this.roundedButtonPreviousPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonPreviousPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonPreviousPage.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonPreviousPage.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonPreviousPage.TabIndex = 15;
+            this.roundedButtonPreviousPage.TextColor = System.Drawing.Color.White;
+            this.roundedButtonPreviousPage.Click += new System.EventHandler(this.roundedButtonPreviousPage_Click);
+            // 
+            // roundedButtonLastPage
+            // 
+            this.roundedButtonLastPage.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLastPage.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLastPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonLastPage.ButtonText = ">>";
+            this.roundedButtonLastPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonLastPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonLastPage.Location = new System.Drawing.Point(321, 431);
+            this.roundedButtonLastPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonLastPage.Name = "roundedButtonLastPage";
+            this.roundedButtonLastPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLastPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonLastPage.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonLastPage.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonLastPage.TabIndex = 13;
+            this.roundedButtonLastPage.TextColor = System.Drawing.Color.White;
+            this.roundedButtonLastPage.Click += new System.EventHandler(this.roundedButtonLastPage_Click);
+            // 
+            // roundedButtonNextPage
+            // 
+            this.roundedButtonNextPage.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNextPage.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNextPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonNextPage.ButtonText = ">";
+            this.roundedButtonNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonNextPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonNextPage.Location = new System.Drawing.Point(255, 431);
+            this.roundedButtonNextPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonNextPage.Name = "roundedButtonNextPage";
+            this.roundedButtonNextPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNextPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonNextPage.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonNextPage.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonNextPage.TabIndex = 14;
+            this.roundedButtonNextPage.TextColor = System.Drawing.Color.White;
+            this.roundedButtonNextPage.Click += new System.EventHandler(this.roundedButtonNextPage_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(437, 329);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(195, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Estatísticas de pagamento:";
+            // 
+            // chart
+            // 
+            this.chart.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            this.chart.Location = new System.Drawing.Point(440, 348);
+            this.chart.Name = "chart";
+            this.chart.Size = new System.Drawing.Size(191, 140);
+            this.chart.TabIndex = 7;
+            this.chart.Text = "chart1";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(437, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Filtrar por status:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(437, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Desagrupar pessoa:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(452, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Pesquisar:";
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.DisplayMember = "Pago";
+            this.comboBoxType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(439, 172);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(192, 28);
+            this.comboBoxType.TabIndex = 3;
+            this.comboBoxType.Text = "Selecione um tipo . . .";
+            this.comboBoxType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxType_SelectionChangeCommitted);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBoxSearch.BackColor = System.Drawing.Color.White;
+            this.textBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(440, 47);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(288, 31);
+            this.textBoxSearch.TabIndex = 1;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
+            // comboBoxPeoples
+            // 
+            this.comboBoxPeoples.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxPeoples.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPeoples.FormattingEnabled = true;
+            this.comboBoxPeoples.Location = new System.Drawing.Point(439, 120);
+            this.comboBoxPeoples.Name = "comboBoxPeoples";
+            this.comboBoxPeoples.Size = new System.Drawing.Size(235, 28);
+            this.comboBoxPeoples.TabIndex = 2;
+            this.comboBoxPeoples.Text = "Selecione uma pessoa . . .";
+            this.comboBoxPeoples.SelectionChangeCommitted += new System.EventHandler(this.comboBoxPeoples_SelectionChangeCommitted);
             // 
             // Principal
             // 
@@ -530,50 +573,26 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "Principal";
-            this.Text = "Principal";
+            this.Text = "Nubank Empréstimos";
             this.Load += new System.EventHandler(this.Principal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelGerenciar.ResumeLayout(false);
+            this.panelGerenciar.PerformLayout();
+            this.panelTable.ResumeLayout(false);
+            this.panelTable.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPeoples)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button SendEmail;
-        private System.Windows.Forms.TextBox textBoxUrl;
-        private System.Windows.Forms.CheckBox checkBoxTypeContent;
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button buttonNew;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBoxPeoples;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button buttonPreviousPage;
-        private System.Windows.Forms.Button buttonFirstPage;
-        private System.Windows.Forms.Button buttonNextPage;
-        private System.Windows.Forms.Button buttonLastPage;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button buttonGenerate;
-        private System.Windows.Forms.ComboBox comboBoxPeoples2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Deve;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Juros;
-        private System.Windows.Forms.DataGridViewButtonColumn Details;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Controls.RoundedButton roundedButtonSair;
@@ -583,5 +602,29 @@
         private Controls.RoundedButton roundedButtonMenu;
         private System.Windows.Forms.Label labelCreditos;
         private System.Windows.Forms.Panel panelGerenciar;
+        private System.Windows.Forms.DataGridView dataGridViewPeoples;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.ComboBox comboBoxPeoples;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private Controls.RoundedButton roundedButtonNew;
+        private System.Windows.Forms.Panel panelTable;
+        private Controls.RoundedButton roundedButtonFirstPage;
+        private Controls.RoundedButton roundedButtonPreviousPage;
+        private Controls.RoundedButton roundedButtonLastPage;
+        private Controls.RoundedButton roundedButtonNextPage;
+        private System.Windows.Forms.Label labelHeader;
+        private System.Windows.Forms.Panel panelHeader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Juros;
+        private Controls.RoundedButton roundedButtonLimpar;
+        private System.Windows.Forms.Label labelDetalhes;
     }
 }
