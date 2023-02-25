@@ -80,6 +80,7 @@
     <Compile Include="Database\Emprestimo.cs">
       <DependentUpon>dbEmprestimos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\StatusModel.cs" />
     <Compile Include="Enums\EPaginationActions.cs" />
     <Compile Include="Enums\EStatus.cs" />
     <Compile Include="Enums\ETypeEmail.cs" />

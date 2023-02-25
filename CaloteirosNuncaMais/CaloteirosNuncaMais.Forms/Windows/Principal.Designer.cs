@@ -1,4 +1,6 @@
-﻿namespace CaloteirosNuncaMais.Forms.Telas
+﻿using System;
+
+namespace CaloteirosNuncaMais.Forms.Telas
 {
     partial class Principal
     {
@@ -28,13 +30,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panel = new System.Windows.Forms.Panel();
-            this.labelCreditos = new System.Windows.Forms.Label();
+            this.labelHoraAtual = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGerenciar = new System.Windows.Forms.Panel();
             this.panelTable = new System.Windows.Forms.Panel();
@@ -47,7 +50,6 @@
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Juros = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +57,8 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.comboBoxPeoples = new System.Windows.Forms.ComboBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.roundedButtonLimpar = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
             this.roundedButtonFirstPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
             this.roundedButtonNew = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
@@ -78,7 +82,7 @@
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.White;
-            this.panel.Controls.Add(this.labelCreditos);
+            this.panel.Controls.Add(this.labelHoraAtual);
             this.panel.Controls.Add(this.roundedButtonSair);
             this.panel.Controls.Add(this.roundedButtonConfig);
             this.panel.Controls.Add(this.roundedButtonLayouts);
@@ -90,17 +94,17 @@
             this.panel.Size = new System.Drawing.Size(184, 516);
             this.panel.TabIndex = 9;
             // 
-            // labelCreditos
+            // labelHoraAtual
             // 
-            this.labelCreditos.AutoSize = true;
-            this.labelCreditos.BackColor = System.Drawing.Color.Transparent;
-            this.labelCreditos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreditos.ForeColor = System.Drawing.Color.DarkViolet;
-            this.labelCreditos.Location = new System.Drawing.Point(21, 468);
-            this.labelCreditos.Name = "labelCreditos";
-            this.labelCreditos.Size = new System.Drawing.Size(149, 20);
-            this.labelCreditos.TabIndex = 11;
-            this.labelCreditos.Text = "Maked by Filaupe";
+            this.labelHoraAtual.AutoSize = true;
+            this.labelHoraAtual.BackColor = System.Drawing.Color.Transparent;
+            this.labelHoraAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHoraAtual.ForeColor = System.Drawing.Color.DarkViolet;
+            this.labelHoraAtual.Location = new System.Drawing.Point(56, 467);
+            this.labelHoraAtual.Name = "labelHoraAtual";
+            this.labelHoraAtual.Size = new System.Drawing.Size(79, 20);
+            this.labelHoraAtual.TabIndex = 11;
+            this.labelHoraAtual.Text = "00:00:00";
             // 
             // pictureBox1
             // 
@@ -117,7 +121,6 @@
             this.panelGerenciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(185)))), ((int)(((byte)(90)))), ((int)(((byte)(250)))));
             this.panelGerenciar.Controls.Add(this.roundedButtonLimpar);
             this.panelGerenciar.Controls.Add(this.panelTable);
-            this.panelGerenciar.Controls.Add(this.label4);
             this.panelGerenciar.Controls.Add(this.chart);
             this.panelGerenciar.Controls.Add(this.label3);
             this.panelGerenciar.Controls.Add(this.label2);
@@ -153,7 +156,7 @@
             this.labelDetalhes.BackColor = System.Drawing.Color.Transparent;
             this.labelDetalhes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDetalhes.ForeColor = System.Drawing.Color.DarkViolet;
-            this.labelDetalhes.Location = new System.Drawing.Point(23, 463);
+            this.labelDetalhes.Location = new System.Drawing.Point(24, 463);
             this.labelDetalhes.Name = "labelDetalhes";
             this.labelDetalhes.Size = new System.Drawing.Size(363, 13);
             this.labelDetalhes.TabIndex = 18;
@@ -225,6 +228,7 @@
             this.dataGridViewPeoples.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPeoples.Size = new System.Drawing.Size(368, 360);
             this.dataGridViewPeoples.TabIndex = 0;
+            this.dataGridViewPeoples.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPeoples_CellDoubleClick);
             // 
             // Id
             // 
@@ -259,27 +263,15 @@
             this.Juros.ReadOnly = true;
             this.Juros.Width = 80;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(437, 329);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(195, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Estatísticas de pagamento:";
-            // 
             // chart
             // 
             this.chart.BackColor = System.Drawing.Color.Transparent;
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart.ChartAreas.Add(chartArea1);
-            this.chart.Location = new System.Drawing.Point(440, 348);
+            this.chart.Location = new System.Drawing.Point(510, 278);
             this.chart.Name = "chart";
-            this.chart.Size = new System.Drawing.Size(191, 140);
+            this.chart.Size = new System.Drawing.Size(140, 140);
             this.chart.TabIndex = 7;
             this.chart.Text = "chart1";
             // 
@@ -355,6 +347,18 @@
             this.comboBoxPeoples.TabIndex = 2;
             this.comboBoxPeoples.Text = "Selecione uma pessoa . . .";
             this.comboBoxPeoples.SelectionChangeCommitted += new System.EventHandler(this.comboBoxPeoples_SelectionChangeCommitted);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 60000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // timerHora
+            // 
+            this.timerHora.Enabled = true;
+            this.timerHora.Interval = 1000;
+            this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
             // roundedButtonLimpar
             // 
@@ -477,7 +481,7 @@
             this.roundedButtonSair.ButtonText = "Sair";
             this.roundedButtonSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.roundedButtonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonSair.Location = new System.Drawing.Point(21, 398);
+            this.roundedButtonSair.Location = new System.Drawing.Point(20, 398);
             this.roundedButtonSair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.roundedButtonSair.Name = "roundedButtonSair";
             this.roundedButtonSair.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -495,7 +499,7 @@
             this.roundedButtonConfig.ButtonText = "Configurações";
             this.roundedButtonConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.roundedButtonConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonConfig.Location = new System.Drawing.Point(21, 338);
+            this.roundedButtonConfig.Location = new System.Drawing.Point(20, 338);
             this.roundedButtonConfig.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.roundedButtonConfig.Name = "roundedButtonConfig";
             this.roundedButtonConfig.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -513,7 +517,7 @@
             this.roundedButtonLayouts.ButtonText = "Layouts";
             this.roundedButtonLayouts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.roundedButtonLayouts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonLayouts.Location = new System.Drawing.Point(21, 278);
+            this.roundedButtonLayouts.Location = new System.Drawing.Point(20, 278);
             this.roundedButtonLayouts.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.roundedButtonLayouts.Name = "roundedButtonLayouts";
             this.roundedButtonLayouts.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -531,7 +535,7 @@
             this.roundedButtonGerenciar.ButtonText = "Gerenciar";
             this.roundedButtonGerenciar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.roundedButtonGerenciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonGerenciar.Location = new System.Drawing.Point(21, 218);
+            this.roundedButtonGerenciar.Location = new System.Drawing.Point(20, 218);
             this.roundedButtonGerenciar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.roundedButtonGerenciar.Name = "roundedButtonGerenciar";
             this.roundedButtonGerenciar.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -549,7 +553,7 @@
             this.roundedButtonMenu.ButtonText = "Menu";
             this.roundedButtonMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.roundedButtonMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonMenu.Location = new System.Drawing.Point(21, 158);
+            this.roundedButtonMenu.Location = new System.Drawing.Point(20, 158);
             this.roundedButtonMenu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.roundedButtonMenu.Name = "roundedButtonMenu";
             this.roundedButtonMenu.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -601,13 +605,12 @@
         private Controls.RoundedButton roundedButtonLayouts;
         private Controls.RoundedButton roundedButtonGerenciar;
         private Controls.RoundedButton roundedButtonMenu;
-        private System.Windows.Forms.Label labelCreditos;
+        private System.Windows.Forms.Label labelHoraAtual;
         private System.Windows.Forms.Panel panelGerenciar;
         private System.Windows.Forms.DataGridView dataGridViewPeoples;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.ComboBox comboBoxPeoples;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -627,5 +630,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Juros;
         private Controls.RoundedButton roundedButtonLimpar;
         private System.Windows.Forms.Label labelDetalhes;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Timer timerHora;
     }
 }
