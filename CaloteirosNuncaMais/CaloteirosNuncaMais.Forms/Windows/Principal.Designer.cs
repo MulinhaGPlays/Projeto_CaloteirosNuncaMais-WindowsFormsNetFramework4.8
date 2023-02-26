@@ -70,6 +70,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.roundedButtonLayouts = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
             this.roundedButtonGerenciar = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
             this.roundedButtonMenu = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.labelUpdating = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGerenciar.SuspendLayout();
@@ -82,6 +83,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.White;
+            this.panel.Controls.Add(this.labelUpdating);
             this.panel.Controls.Add(this.labelHoraAtual);
             this.panel.Controls.Add(this.roundedButtonSair);
             this.panel.Controls.Add(this.roundedButtonConfig);
@@ -269,9 +271,9 @@ namespace CaloteirosNuncaMais.Forms.Telas
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart.ChartAreas.Add(chartArea1);
-            this.chart.Location = new System.Drawing.Point(510, 278);
+            this.chart.Location = new System.Drawing.Point(455, 231);
             this.chart.Name = "chart";
-            this.chart.Size = new System.Drawing.Size(140, 140);
+            this.chart.Size = new System.Drawing.Size(256, 256);
             this.chart.TabIndex = 7;
             this.chart.Text = "chart1";
             // 
@@ -319,7 +321,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Location = new System.Drawing.Point(439, 172);
             this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(192, 28);
+            this.comboBoxType.Size = new System.Drawing.Size(211, 28);
             this.comboBoxType.TabIndex = 3;
             this.comboBoxType.Text = "Selecione um tipo . . .";
             this.comboBoxType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxType_SelectionChangeCommitted);
@@ -328,11 +330,12 @@ namespace CaloteirosNuncaMais.Forms.Telas
             // 
             this.textBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBoxSearch.BackColor = System.Drawing.Color.White;
+            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSearch.Location = new System.Drawing.Point(440, 47);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(288, 31);
+            this.textBoxSearch.Size = new System.Drawing.Size(288, 29);
             this.textBoxSearch.TabIndex = 1;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
@@ -343,7 +346,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.comboBoxPeoples.FormattingEnabled = true;
             this.comboBoxPeoples.Location = new System.Drawing.Point(439, 120);
             this.comboBoxPeoples.Name = "comboBoxPeoples";
-            this.comboBoxPeoples.Size = new System.Drawing.Size(235, 28);
+            this.comboBoxPeoples.Size = new System.Drawing.Size(289, 28);
             this.comboBoxPeoples.TabIndex = 2;
             this.comboBoxPeoples.Text = "Selecione uma pessoa . . .";
             this.comboBoxPeoples.SelectionChangeCommitted += new System.EventHandler(this.comboBoxPeoples_SelectionChangeCommitted);
@@ -368,7 +371,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.roundedButtonLimpar.ButtonText = "Limpar";
             this.roundedButtonLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.roundedButtonLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonLimpar.Location = new System.Drawing.Point(638, 171);
+            this.roundedButtonLimpar.Location = new System.Drawing.Point(661, 171);
             this.roundedButtonLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.roundedButtonLimpar.Name = "roundedButtonLimpar";
             this.roundedButtonLimpar.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -564,6 +567,19 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.roundedButtonMenu.TextColor = System.Drawing.Color.White;
             this.roundedButtonMenu.Click += new System.EventHandler(this.roundedButtonMenu_Click);
             // 
+            // labelUpdating
+            // 
+            this.labelUpdating.AutoSize = true;
+            this.labelUpdating.BackColor = System.Drawing.Color.Transparent;
+            this.labelUpdating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUpdating.ForeColor = System.Drawing.Color.DarkViolet;
+            this.labelUpdating.Location = new System.Drawing.Point(34, 124);
+            this.labelUpdating.Name = "labelUpdating";
+            this.labelUpdating.Size = new System.Drawing.Size(119, 20);
+            this.labelUpdating.TabIndex = 12;
+            this.labelUpdating.Text = "Atualizando...";
+            this.labelUpdating.Visible = false;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,5 +648,6 @@ namespace CaloteirosNuncaMais.Forms.Telas
         private System.Windows.Forms.Label labelDetalhes;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Timer timerHora;
+        private System.Windows.Forms.Label labelUpdating;
     }
 }

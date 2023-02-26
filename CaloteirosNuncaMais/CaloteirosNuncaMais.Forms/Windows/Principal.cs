@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CaloteirosNuncaMais.Forms.Telas
 {
@@ -28,6 +29,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
         private PrivateFontCollection _customFonts;
 
         private bool _inTask = false;
+        private bool _desagrupado = false;
 
         private int _skip;
         private int _take;
@@ -71,7 +73,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.panelTable.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelTable.Width, panelTable.Height, 15, 15));
             this.panelHeader.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelHeader.Width, panelHeader.Height, 15, 15));
             this.panelGerenciar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelGerenciar.Width, panelGerenciar.Height, 15, 15));
-            this.textBoxSearch.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, textBoxSearch.Width, textBoxSearch.Height, 10, 50));
+            this.textBoxSearch.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, textBoxSearch.Width, textBoxSearch.Height, 35, 35));
             this.comboBoxPeoples.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, comboBoxPeoples.Width, comboBoxPeoples.Height, 10, 50));
             this.comboBoxType.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, comboBoxType.Width, comboBoxType.Height, 10, 50));
             this.labelHeader.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, labelHeader.Width, labelHeader.Height, 5, 5));
@@ -133,8 +135,10 @@ namespace CaloteirosNuncaMais.Forms.Telas
 
         private void CheckPage()
         {
+            int calc = (int)Math.Floor(1M * (_emprestimos.Count() / _take));
+
             bool min = !(_skip <= 0);
-            bool max = !(_skip >= (int)Math.Ceiling(1M * (_emprestimos.Count() / _take)));
+            bool max = !(_skip >= calc);
 
             this.roundedButtonPreviousPage.Enabled = min;
             this.roundedButtonFirstPage.Enabled = min;
@@ -162,10 +166,18 @@ namespace CaloteirosNuncaMais.Forms.Telas
                 }
             }
             await _context.SaveChangesAsync();
+            this.SetAutoCompleteText();
+            this.LoadComboBox();
             this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
         }
         
-        private async void timer_Tick(object sender, EventArgs e) => await this.CheckData();
+        private async void timer_Tick(object sender, EventArgs e)
+        {
+            this.labelUpdating.Visible = true;
+            await this.CheckData();
+            await Task.Delay(1000);
+            this.labelUpdating.Visible = false;
+        }
         private void timerHora_Tick(object sender, EventArgs e) => this.labelHoraAtual.Text = DateTime.Now.ToString("HH:mm:ss");
         
         private async void Principal_Load(object sender, EventArgs e)
@@ -174,11 +186,10 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.timer.Start();
             this.timerHora.Start();
             await this.CheckData();
-
-            this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
             this.LoadComboBox();
-            this.CheckPage();
+            this.roundedButtonLimpar_Click(sender, e);
         }
+
         private void ReloadData(IQueryable<Emprestimo> emprestimos, DataGridView table)
         {
             _emprestimos = emprestimos;
@@ -196,21 +207,20 @@ namespace CaloteirosNuncaMais.Forms.Telas
             }
             this.SetCellsColors(table);
             this.LoadChartData(_emprestimos, this.chart);
-            this.SetAutoCompleteText();
             this.CheckPage();
         }
-        private async Task ReloadGridWithTextBox(string text)
+        private Task<bool> ReloadGridWithTextBox(string text)
         {
             _inTask = true;
             if (!String.IsNullOrWhiteSpace(text)) this.ReloadData(DistinctByEmail().Where(x => x.Nome.Contains(text)), this.dataGridViewPeoples);
             else this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
-            await Task.Delay(500);
             _inTask = false;
+            return new Task<bool>(() => 0 == 0);
         }
 
         private void PaginationActions(EPaginationActions action)
         {
-            int maxPages = (int)Math.Ceiling(1M * (_emprestimos.Count() / _take))-1;
+            int maxPages = (int)Math.Ceiling(1M * (_emprestimos.Count() / _take));
             switch (action)
             {
                 case EPaginationActions.ULTIMO: _skip = maxPages; break;
@@ -244,28 +254,17 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.comboBoxType.DataSource = Status;
             this.comboBoxType.ValueMember = "Status";
             this.comboBoxType.DisplayMember = "Status";
-        }
 
-        private async void SendEmail_Click(object sender, EventArgs e)
-        {
-            byte[] array = File.ReadAllBytes(@"C:\Users\android\Documents\GitHub\WorldSkills\20221207_070332_wsc2022_td09_br.pdf");
-            MemoryStream stream = new MemoryStream(array);
-            var anexo = new Attachment(stream, "teste.pdf"); // refazer
-
-            //var email = new MailAddress(this.comboBoxPeoples.SelectedValue.ToString());
-            //var content = this.textBoxUrl.Text;
-            //var emailType = this.checkBoxTypeContent.Checked
-            //    ? ETypeEmail.AGRADECIMENTO
-            //    : ETypeEmail.PROCESSAMENTO;
-
-            //if (await EmailService.CreateMail(email, content, emailType, anexo).Sending()) 
-            //    MessageBox.Show("Email enviado com sucesso!");
-            //else 
-            //    MessageBox.Show("Erro ao enviar o Email.");
+            this.comboBoxType.Text = "Selecione um tipo . . .";
+            this.comboBoxPeoples.Text = "Selecione uma pessoa . . .";
         }
 
         private async void textBoxSearch_TextChanged(object sender, EventArgs e)
-        { if (!_inTask) await ReloadGridWithTextBox(this.textBoxSearch.Text); }
+        { 
+            if (!_inTask) 
+                await ReloadGridWithTextBox(this.textBoxSearch.Text);
+            _skip = 0;
+        }
 
         private void EmprestimoDetails(int id)
         {
@@ -324,6 +323,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
                 _context.Emprestimos.Remove(model);
                 _context.SaveChanges();
                 MessageBox.Show("Empréstimo deletado!");
+                this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
             }
         }
 
@@ -337,7 +337,6 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.panelGerenciar.Visible = !this.panelGerenciar.Visible;
             this.comboBoxType.Text = "Selecione um tipo . . .";
             this.comboBoxPeoples.Text = "Selecione uma pessoa . . .";
-            this.roundedButtonLimpar_Click(sender, e);
         }
         private void roundedButtonLayouts_Click(object sender, EventArgs e)
         {
@@ -392,6 +391,8 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
             this.comboBoxType.Text = "Selecione um tipo . . .";
             this.comboBoxPeoples.Text = "Selecione uma pessoa . . .";
+            this.textBoxSearch.Text = String.Empty;
+            _desagrupado = false;
         }
 
         private void roundedButtonNextPage_Click(object sender, EventArgs e) => this.PaginationActions(EPaginationActions.PROXIMO);
@@ -402,13 +403,18 @@ namespace CaloteirosNuncaMais.Forms.Telas
 
         private void comboBoxPeoples_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            _desagrupado = true;
             var email = this.comboBoxPeoples.SelectedValue as string;
             this.ReloadData(_context.Emprestimos.Where(x => x.Email == email), this.dataGridViewPeoples);
         }
         private void comboBoxType_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var status = this.comboBoxType.SelectedValue as string;
-            this.ReloadData(_context.Emprestimos.Where(x => x.Pago == status), this.dataGridViewPeoples);
+            var email = this.comboBoxPeoples.SelectedValue as string;
+
+            if (_desagrupado) 
+                this.ReloadData(_context.Emprestimos.Where(x => x.Email == email && x.Pago == status), this.dataGridViewPeoples);
+            else this.ReloadData(DistinctByEmail().Where(x => x.Pago == status), this.dataGridViewPeoples);
         }
 
         private void LoadChartData(IQueryable<Emprestimo> lista, Chart chart)
@@ -427,7 +433,9 @@ namespace CaloteirosNuncaMais.Forms.Telas
 
         private void dataGridViewPeoples_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int? Id = this.dataGridViewPeoples.Rows[e.RowIndex].Cells[0].Value as int?;
+            if (Id.HasValue)
+                this.EmprestimoDelete(Id.Value);
         }
     }
 }
