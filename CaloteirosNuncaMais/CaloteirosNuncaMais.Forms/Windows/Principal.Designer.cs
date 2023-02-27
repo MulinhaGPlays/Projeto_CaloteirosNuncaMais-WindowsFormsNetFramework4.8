@@ -37,9 +37,16 @@ namespace CaloteirosNuncaMais.Forms.Telas
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panel = new System.Windows.Forms.Panel();
+            this.labelUpdating = new System.Windows.Forms.Label();
             this.labelHoraAtual = new System.Windows.Forms.Label();
+            this.roundedButtonSair = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonConfig = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonLayouts = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonGerenciar = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonMenu = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGerenciar = new System.Windows.Forms.Panel();
+            this.roundedButtonLimpar = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
             this.panelTable = new System.Windows.Forms.Panel();
             this.labelDetalhes = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
@@ -50,6 +57,11 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Juros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roundedButtonFirstPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonNew = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonPreviousPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonLastPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
+            this.roundedButtonNextPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,18 +71,6 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.comboBoxPeoples = new System.Windows.Forms.ComboBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.timerHora = new System.Windows.Forms.Timer(this.components);
-            this.roundedButtonLimpar = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonFirstPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonNew = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonPreviousPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonLastPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonNextPage = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonSair = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonConfig = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonLayouts = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonGerenciar = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.roundedButtonMenu = new CaloteirosNuncaMais.Forms.Controls.RoundedButton();
-            this.labelUpdating = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGerenciar.SuspendLayout();
@@ -96,6 +96,19 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.panel.Size = new System.Drawing.Size(184, 516);
             this.panel.TabIndex = 9;
             // 
+            // labelUpdating
+            // 
+            this.labelUpdating.AutoSize = true;
+            this.labelUpdating.BackColor = System.Drawing.Color.Transparent;
+            this.labelUpdating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUpdating.ForeColor = System.Drawing.Color.DarkViolet;
+            this.labelUpdating.Location = new System.Drawing.Point(34, 124);
+            this.labelUpdating.Name = "labelUpdating";
+            this.labelUpdating.Size = new System.Drawing.Size(119, 20);
+            this.labelUpdating.TabIndex = 12;
+            this.labelUpdating.Text = "Atualizando...";
+            this.labelUpdating.Visible = false;
+            // 
             // labelHoraAtual
             // 
             this.labelHoraAtual.AutoSize = true;
@@ -107,6 +120,96 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.labelHoraAtual.Size = new System.Drawing.Size(79, 20);
             this.labelHoraAtual.TabIndex = 11;
             this.labelHoraAtual.Text = "00:00:00";
+            // 
+            // roundedButtonSair
+            // 
+            this.roundedButtonSair.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonSair.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonSair.ButtonText = "Sair";
+            this.roundedButtonSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonSair.Location = new System.Drawing.Point(20, 398);
+            this.roundedButtonSair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonSair.Name = "roundedButtonSair";
+            this.roundedButtonSair.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonSair.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonSair.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonSair.Size = new System.Drawing.Size(145, 45);
+            this.roundedButtonSair.TabIndex = 10;
+            this.roundedButtonSair.TextColor = System.Drawing.Color.White;
+            this.roundedButtonSair.Click += new System.EventHandler(this.roundedButtonSair_Click);
+            // 
+            // roundedButtonConfig
+            // 
+            this.roundedButtonConfig.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonConfig.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonConfig.ButtonText = "Configurações";
+            this.roundedButtonConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonConfig.Location = new System.Drawing.Point(20, 338);
+            this.roundedButtonConfig.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonConfig.Name = "roundedButtonConfig";
+            this.roundedButtonConfig.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonConfig.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonConfig.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonConfig.Size = new System.Drawing.Size(145, 45);
+            this.roundedButtonConfig.TabIndex = 9;
+            this.roundedButtonConfig.TextColor = System.Drawing.Color.White;
+            this.roundedButtonConfig.Click += new System.EventHandler(this.roundedButtonConfig_Click);
+            // 
+            // roundedButtonLayouts
+            // 
+            this.roundedButtonLayouts.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLayouts.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonLayouts.ButtonText = "Layouts";
+            this.roundedButtonLayouts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonLayouts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonLayouts.Location = new System.Drawing.Point(20, 278);
+            this.roundedButtonLayouts.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonLayouts.Name = "roundedButtonLayouts";
+            this.roundedButtonLayouts.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLayouts.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonLayouts.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonLayouts.Size = new System.Drawing.Size(145, 45);
+            this.roundedButtonLayouts.TabIndex = 8;
+            this.roundedButtonLayouts.TextColor = System.Drawing.Color.White;
+            this.roundedButtonLayouts.Click += new System.EventHandler(this.roundedButtonLayouts_Click);
+            // 
+            // roundedButtonGerenciar
+            // 
+            this.roundedButtonGerenciar.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonGerenciar.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonGerenciar.ButtonText = "Gerenciar";
+            this.roundedButtonGerenciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonGerenciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonGerenciar.Location = new System.Drawing.Point(20, 218);
+            this.roundedButtonGerenciar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonGerenciar.Name = "roundedButtonGerenciar";
+            this.roundedButtonGerenciar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonGerenciar.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonGerenciar.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonGerenciar.Size = new System.Drawing.Size(145, 45);
+            this.roundedButtonGerenciar.TabIndex = 7;
+            this.roundedButtonGerenciar.TextColor = System.Drawing.Color.White;
+            this.roundedButtonGerenciar.Click += new System.EventHandler(this.roundedButtonGerenciar_Click);
+            // 
+            // roundedButtonMenu
+            // 
+            this.roundedButtonMenu.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonMenu.ButtonColor = System.Drawing.Color.DarkViolet;
+            this.roundedButtonMenu.ButtonText = "Menu";
+            this.roundedButtonMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonMenu.Location = new System.Drawing.Point(20, 158);
+            this.roundedButtonMenu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.roundedButtonMenu.Name = "roundedButtonMenu";
+            this.roundedButtonMenu.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonMenu.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonMenu.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonMenu.Size = new System.Drawing.Size(145, 45);
+            this.roundedButtonMenu.TabIndex = 6;
+            this.roundedButtonMenu.TextColor = System.Drawing.Color.White;
+            this.roundedButtonMenu.Click += new System.EventHandler(this.roundedButtonMenu_Click);
             // 
             // pictureBox1
             // 
@@ -135,6 +238,25 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.panelGerenciar.Size = new System.Drawing.Size(746, 516);
             this.panelGerenciar.TabIndex = 10;
             this.panelGerenciar.Visible = false;
+            // 
+            // roundedButtonLimpar
+            // 
+            this.roundedButtonLimpar.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLimpar.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLimpar.ButtonColor = System.Drawing.Color.Magenta;
+            this.roundedButtonLimpar.ButtonText = "Limpar";
+            this.roundedButtonLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonLimpar.Location = new System.Drawing.Point(661, 171);
+            this.roundedButtonLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonLimpar.Name = "roundedButtonLimpar";
+            this.roundedButtonLimpar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLimpar.OnHoverButtonColor = System.Drawing.Color.Plum;
+            this.roundedButtonLimpar.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonLimpar.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonLimpar.TabIndex = 18;
+            this.roundedButtonLimpar.TextColor = System.Drawing.Color.White;
+            this.roundedButtonLimpar.Click += new System.EventHandler(this.roundedButtonLimpar_Click);
             // 
             // panelTable
             // 
@@ -265,6 +387,101 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.Juros.ReadOnly = true;
             this.Juros.Width = 80;
             // 
+            // roundedButtonFirstPage
+            // 
+            this.roundedButtonFirstPage.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonFirstPage.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonFirstPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonFirstPage.ButtonText = "<<";
+            this.roundedButtonFirstPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonFirstPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonFirstPage.Location = new System.Drawing.Point(20, 431);
+            this.roundedButtonFirstPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonFirstPage.Name = "roundedButtonFirstPage";
+            this.roundedButtonFirstPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonFirstPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonFirstPage.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonFirstPage.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonFirstPage.TabIndex = 16;
+            this.roundedButtonFirstPage.TextColor = System.Drawing.Color.White;
+            this.roundedButtonFirstPage.Click += new System.EventHandler(this.roundedButtonFirstPage_Click);
+            // 
+            // roundedButtonNew
+            // 
+            this.roundedButtonNew.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNew.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNew.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonNew.ButtonText = "Novo";
+            this.roundedButtonNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonNew.Location = new System.Drawing.Point(154, 426);
+            this.roundedButtonNew.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.roundedButtonNew.Name = "roundedButtonNew";
+            this.roundedButtonNew.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNew.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonNew.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonNew.Size = new System.Drawing.Size(100, 39);
+            this.roundedButtonNew.TabIndex = 12;
+            this.roundedButtonNew.TextColor = System.Drawing.Color.White;
+            this.roundedButtonNew.Click += new System.EventHandler(this.roundedButtonNew_Click);
+            // 
+            // roundedButtonPreviousPage
+            // 
+            this.roundedButtonPreviousPage.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonPreviousPage.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonPreviousPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonPreviousPage.ButtonText = "<";
+            this.roundedButtonPreviousPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonPreviousPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonPreviousPage.Location = new System.Drawing.Point(86, 431);
+            this.roundedButtonPreviousPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonPreviousPage.Name = "roundedButtonPreviousPage";
+            this.roundedButtonPreviousPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonPreviousPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonPreviousPage.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonPreviousPage.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonPreviousPage.TabIndex = 15;
+            this.roundedButtonPreviousPage.TextColor = System.Drawing.Color.White;
+            this.roundedButtonPreviousPage.Click += new System.EventHandler(this.roundedButtonPreviousPage_Click);
+            // 
+            // roundedButtonLastPage
+            // 
+            this.roundedButtonLastPage.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLastPage.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLastPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonLastPage.ButtonText = ">>";
+            this.roundedButtonLastPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonLastPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonLastPage.Location = new System.Drawing.Point(321, 431);
+            this.roundedButtonLastPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonLastPage.Name = "roundedButtonLastPage";
+            this.roundedButtonLastPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonLastPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonLastPage.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonLastPage.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonLastPage.TabIndex = 13;
+            this.roundedButtonLastPage.TextColor = System.Drawing.Color.White;
+            this.roundedButtonLastPage.Click += new System.EventHandler(this.roundedButtonLastPage_Click);
+            // 
+            // roundedButtonNextPage
+            // 
+            this.roundedButtonNextPage.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNextPage.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNextPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundedButtonNextPage.ButtonText = ">";
+            this.roundedButtonNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonNextPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButtonNextPage.Location = new System.Drawing.Point(255, 431);
+            this.roundedButtonNextPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedButtonNextPage.Name = "roundedButtonNextPage";
+            this.roundedButtonNextPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.roundedButtonNextPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
+            this.roundedButtonNextPage.OnHoverTextColor = System.Drawing.Color.Black;
+            this.roundedButtonNextPage.Size = new System.Drawing.Size(67, 29);
+            this.roundedButtonNextPage.TabIndex = 14;
+            this.roundedButtonNextPage.TextColor = System.Drawing.Color.White;
+            this.roundedButtonNextPage.Click += new System.EventHandler(this.roundedButtonNextPage_Click);
+            // 
             // chart
             // 
             this.chart.BackColor = System.Drawing.Color.Transparent;
@@ -363,223 +580,6 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.timerHora.Interval = 1000;
             this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
-            // roundedButtonLimpar
-            // 
-            this.roundedButtonLimpar.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButtonLimpar.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonLimpar.ButtonColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundedButtonLimpar.ButtonText = "Limpar";
-            this.roundedButtonLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonLimpar.Location = new System.Drawing.Point(661, 171);
-            this.roundedButtonLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.roundedButtonLimpar.Name = "roundedButtonLimpar";
-            this.roundedButtonLimpar.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonLimpar.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonLimpar.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonLimpar.Size = new System.Drawing.Size(67, 29);
-            this.roundedButtonLimpar.TabIndex = 18;
-            this.roundedButtonLimpar.TextColor = System.Drawing.Color.White;
-            this.roundedButtonLimpar.Click += new System.EventHandler(this.roundedButtonLimpar_Click);
-            // 
-            // roundedButtonFirstPage
-            // 
-            this.roundedButtonFirstPage.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButtonFirstPage.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonFirstPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundedButtonFirstPage.ButtonText = "<<";
-            this.roundedButtonFirstPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonFirstPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonFirstPage.Location = new System.Drawing.Point(20, 431);
-            this.roundedButtonFirstPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.roundedButtonFirstPage.Name = "roundedButtonFirstPage";
-            this.roundedButtonFirstPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonFirstPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonFirstPage.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonFirstPage.Size = new System.Drawing.Size(67, 29);
-            this.roundedButtonFirstPage.TabIndex = 16;
-            this.roundedButtonFirstPage.TextColor = System.Drawing.Color.White;
-            this.roundedButtonFirstPage.Click += new System.EventHandler(this.roundedButtonFirstPage_Click);
-            // 
-            // roundedButtonNew
-            // 
-            this.roundedButtonNew.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButtonNew.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonNew.ButtonColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundedButtonNew.ButtonText = "Novo";
-            this.roundedButtonNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonNew.Location = new System.Drawing.Point(154, 426);
-            this.roundedButtonNew.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.roundedButtonNew.Name = "roundedButtonNew";
-            this.roundedButtonNew.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonNew.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonNew.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonNew.Size = new System.Drawing.Size(100, 39);
-            this.roundedButtonNew.TabIndex = 12;
-            this.roundedButtonNew.TextColor = System.Drawing.Color.White;
-            this.roundedButtonNew.Click += new System.EventHandler(this.roundedButtonNew_Click);
-            // 
-            // roundedButtonPreviousPage
-            // 
-            this.roundedButtonPreviousPage.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButtonPreviousPage.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonPreviousPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundedButtonPreviousPage.ButtonText = "<";
-            this.roundedButtonPreviousPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonPreviousPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonPreviousPage.Location = new System.Drawing.Point(86, 431);
-            this.roundedButtonPreviousPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.roundedButtonPreviousPage.Name = "roundedButtonPreviousPage";
-            this.roundedButtonPreviousPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonPreviousPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonPreviousPage.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonPreviousPage.Size = new System.Drawing.Size(67, 29);
-            this.roundedButtonPreviousPage.TabIndex = 15;
-            this.roundedButtonPreviousPage.TextColor = System.Drawing.Color.White;
-            this.roundedButtonPreviousPage.Click += new System.EventHandler(this.roundedButtonPreviousPage_Click);
-            // 
-            // roundedButtonLastPage
-            // 
-            this.roundedButtonLastPage.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButtonLastPage.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonLastPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundedButtonLastPage.ButtonText = ">>";
-            this.roundedButtonLastPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonLastPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonLastPage.Location = new System.Drawing.Point(321, 431);
-            this.roundedButtonLastPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.roundedButtonLastPage.Name = "roundedButtonLastPage";
-            this.roundedButtonLastPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonLastPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonLastPage.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonLastPage.Size = new System.Drawing.Size(67, 29);
-            this.roundedButtonLastPage.TabIndex = 13;
-            this.roundedButtonLastPage.TextColor = System.Drawing.Color.White;
-            this.roundedButtonLastPage.Click += new System.EventHandler(this.roundedButtonLastPage_Click);
-            // 
-            // roundedButtonNextPage
-            // 
-            this.roundedButtonNextPage.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButtonNextPage.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonNextPage.ButtonColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundedButtonNextPage.ButtonText = ">";
-            this.roundedButtonNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonNextPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonNextPage.Location = new System.Drawing.Point(255, 431);
-            this.roundedButtonNextPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.roundedButtonNextPage.Name = "roundedButtonNextPage";
-            this.roundedButtonNextPage.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonNextPage.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonNextPage.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonNextPage.Size = new System.Drawing.Size(67, 29);
-            this.roundedButtonNextPage.TabIndex = 14;
-            this.roundedButtonNextPage.TextColor = System.Drawing.Color.White;
-            this.roundedButtonNextPage.Click += new System.EventHandler(this.roundedButtonNextPage_Click);
-            // 
-            // roundedButtonSair
-            // 
-            this.roundedButtonSair.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonSair.ButtonColor = System.Drawing.Color.DarkViolet;
-            this.roundedButtonSair.ButtonText = "Sair";
-            this.roundedButtonSair.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonSair.Location = new System.Drawing.Point(20, 398);
-            this.roundedButtonSair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.roundedButtonSair.Name = "roundedButtonSair";
-            this.roundedButtonSair.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonSair.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonSair.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonSair.Size = new System.Drawing.Size(145, 45);
-            this.roundedButtonSair.TabIndex = 10;
-            this.roundedButtonSair.TextColor = System.Drawing.Color.White;
-            this.roundedButtonSair.Click += new System.EventHandler(this.roundedButtonSair_Click);
-            // 
-            // roundedButtonConfig
-            // 
-            this.roundedButtonConfig.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonConfig.ButtonColor = System.Drawing.Color.DarkViolet;
-            this.roundedButtonConfig.ButtonText = "Configurações";
-            this.roundedButtonConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonConfig.Location = new System.Drawing.Point(20, 338);
-            this.roundedButtonConfig.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.roundedButtonConfig.Name = "roundedButtonConfig";
-            this.roundedButtonConfig.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonConfig.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonConfig.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonConfig.Size = new System.Drawing.Size(145, 45);
-            this.roundedButtonConfig.TabIndex = 9;
-            this.roundedButtonConfig.TextColor = System.Drawing.Color.White;
-            this.roundedButtonConfig.Click += new System.EventHandler(this.roundedButtonConfig_Click);
-            // 
-            // roundedButtonLayouts
-            // 
-            this.roundedButtonLayouts.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonLayouts.ButtonColor = System.Drawing.Color.DarkViolet;
-            this.roundedButtonLayouts.ButtonText = "Layouts";
-            this.roundedButtonLayouts.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonLayouts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonLayouts.Location = new System.Drawing.Point(20, 278);
-            this.roundedButtonLayouts.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.roundedButtonLayouts.Name = "roundedButtonLayouts";
-            this.roundedButtonLayouts.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonLayouts.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonLayouts.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonLayouts.Size = new System.Drawing.Size(145, 45);
-            this.roundedButtonLayouts.TabIndex = 8;
-            this.roundedButtonLayouts.TextColor = System.Drawing.Color.White;
-            this.roundedButtonLayouts.Click += new System.EventHandler(this.roundedButtonLayouts_Click);
-            // 
-            // roundedButtonGerenciar
-            // 
-            this.roundedButtonGerenciar.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonGerenciar.ButtonColor = System.Drawing.Color.DarkViolet;
-            this.roundedButtonGerenciar.ButtonText = "Gerenciar";
-            this.roundedButtonGerenciar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonGerenciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonGerenciar.Location = new System.Drawing.Point(20, 218);
-            this.roundedButtonGerenciar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.roundedButtonGerenciar.Name = "roundedButtonGerenciar";
-            this.roundedButtonGerenciar.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonGerenciar.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonGerenciar.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonGerenciar.Size = new System.Drawing.Size(145, 45);
-            this.roundedButtonGerenciar.TabIndex = 7;
-            this.roundedButtonGerenciar.TextColor = System.Drawing.Color.White;
-            this.roundedButtonGerenciar.Click += new System.EventHandler(this.roundedButtonGerenciar_Click);
-            // 
-            // roundedButtonMenu
-            // 
-            this.roundedButtonMenu.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonMenu.ButtonColor = System.Drawing.Color.DarkViolet;
-            this.roundedButtonMenu.ButtonText = "Menu";
-            this.roundedButtonMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButtonMenu.Location = new System.Drawing.Point(20, 158);
-            this.roundedButtonMenu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.roundedButtonMenu.Name = "roundedButtonMenu";
-            this.roundedButtonMenu.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.roundedButtonMenu.OnHoverButtonColor = System.Drawing.Color.MediumOrchid;
-            this.roundedButtonMenu.OnHoverTextColor = System.Drawing.Color.Black;
-            this.roundedButtonMenu.Size = new System.Drawing.Size(145, 45);
-            this.roundedButtonMenu.TabIndex = 6;
-            this.roundedButtonMenu.TextColor = System.Drawing.Color.White;
-            this.roundedButtonMenu.Click += new System.EventHandler(this.roundedButtonMenu_Click);
-            // 
-            // labelUpdating
-            // 
-            this.labelUpdating.AutoSize = true;
-            this.labelUpdating.BackColor = System.Drawing.Color.Transparent;
-            this.labelUpdating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUpdating.ForeColor = System.Drawing.Color.DarkViolet;
-            this.labelUpdating.Location = new System.Drawing.Point(34, 124);
-            this.labelUpdating.Name = "labelUpdating";
-            this.labelUpdating.Size = new System.Drawing.Size(119, 20);
-            this.labelUpdating.TabIndex = 12;
-            this.labelUpdating.Text = "Atualizando...";
-            this.labelUpdating.Visible = false;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,6 +598,9 @@ namespace CaloteirosNuncaMais.Forms.Telas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nubank Empréstimos";
             this.Load += new System.EventHandler(this.Principal_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseUp);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -614,6 +617,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
         }
 
         #endregion
+
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Controls.RoundedButton roundedButtonSair;

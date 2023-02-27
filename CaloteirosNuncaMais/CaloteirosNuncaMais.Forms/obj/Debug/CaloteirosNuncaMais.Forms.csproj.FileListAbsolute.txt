@@ -13,7 +13,6 @@ C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsForms
 C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\bin\Debug\EntityFramework.xml
 C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Windows.Dialogs.CreateOrEdit.resources
 C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.csproj.CopyComplete
 C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Windows.Dialogs.Details.resources
 C:\Users\android\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\bin\Debug\CaloteirosNuncaMais.Forms.exe.config
@@ -36,3 +35,4 @@ C:\Users\android\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFra
 C:\Users\android\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.pdb
 C:\Users\android\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Windows.teste.Form1.resources
 C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Windows.teste.Form1.resources
+C:\Users\MulinhaGPlays\Documents\GitHub\Projeto_CaloteirosNuncaMais-WindowsFormsNetFramework4.8\CaloteirosNuncaMais\CaloteirosNuncaMais.Forms\obj\Debug\CaloteirosNuncaMais.Forms.Windows.Dialogs.Create.resources

@@ -2,19 +2,15 @@
 using CaloteirosNuncaMais.Forms.Enums;
 using CaloteirosNuncaMais.Forms.Windows.Dialogs;
 using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Text;
-using System.IO;
 using System.Linq;
-using System.Net.Mail;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CaloteirosNuncaMais.Forms.Telas
 {
@@ -22,17 +18,18 @@ namespace CaloteirosNuncaMais.Forms.Telas
     {
         // TODO: validações
         // TODO: gerar o pdf
-        // TODO: Filtro tem que ser acumulativo
-        // TODO: searchbox não reseta a tabela quando apaga muito rapido
         private dbEmprestimosEntities _context;
         private IQueryable<Emprestimo> _emprestimos;
         private PrivateFontCollection _customFonts;
 
         private bool _inTask = false;
         private bool _desagrupado = false;
+        private bool _mouseClicked = false;
 
         private int _skip;
         private int _take;
+
+        private Point _clickedAt;
 
         public Principal()
         {
@@ -266,67 +263,6 @@ namespace CaloteirosNuncaMais.Forms.Telas
             _skip = 0;
         }
 
-        private void EmprestimoDetails(int id)
-        {
-            var emprestimo = _context.Emprestimos.Find(id);
-            var userData = _context.Emprestimos.Where(x => x.Email == emprestimo.Email);
-            var form = new Details();
-            void SetPago (object sender, EventArgs e)
-            {
-                int selecteId = (int)form.comboBoxListEmprestimos.SelectedValue;
-                var emp = _context.Emprestimos.Find(selecteId);
-                emp.Pago = nameof(EStatus.PAGO);
-                _context.SaveChanges();
-                this.ReloadData(_emprestimos, this.dataGridViewPeoples);
-            }
-
-            form.Text = $"Detalhes de {emprestimo.Nome}";
-            form.labelNome.Text = emprestimo.Nome;
-            form.labelEmail.Text = emprestimo.Email;
-            form.labelStatus.Text = emprestimo.Pago;
-            form.labelPrevisao.Text = emprestimo.DataPrevisao.ToString("dd/MM/yyyy");
-            form.labelEmprestado.Text = $"R${userData.Sum(x => x.Valor):N2}";
-            form.pictureBoxAssinatura.Image = Properties.Resources.nofigure;
-            if (emprestimo.Assinatura != null)
-            {
-                using (MemoryStream memory = new MemoryStream(emprestimo.Assinatura))
-                {
-                    form.pictureBoxAssinatura.Image = Image.FromStream(memory);
-                }
-            }
-            var lista = userData.Where(x => x.Pago == nameof(EStatus.PAGO));
-            decimal soma = 0;
-            try { soma = lista.Sum(x => x.Valor); }
-            catch { }
-
-            form.labelDevolvido.Text = $"R$ {soma:N2}";
-            form.comboBoxListEmprestimos.DataSource = userData.Where(x => x.Pago != nameof(EStatus.PAGO)).ToList();
-            form.buttonMarcarwithPago.Click += SetPago;
-            form.chartHistorico.Series.Add(emprestimo.Nome);
-            form.chartHistorico.Series[0].ChartType = SeriesChartType.Pie;
-
-            form.chartHistorico.Series[0].Points.Add(userData.Count(x => x.Pago == nameof(EStatus.PAGO)));
-            form.chartHistorico.Series[0].Points.Add(userData.Count(x => x.Pago == nameof(EStatus.ANDAMENTO)));
-            form.chartHistorico.Series[0].Points.Add(userData.Count(x => x.Pago == nameof(EStatus.ATRASADO)));
-                
-            form.chartHistorico.Series[0].Points[0].LegendText = nameof(EStatus.PAGO);
-            form.chartHistorico.Series[0].Points[1].LegendText = nameof(EStatus.ANDAMENTO);
-            form.chartHistorico.Series[0].Points[2].LegendText = nameof(EStatus.ATRASADO);
-
-            form.Show();
-        }
-        private void EmprestimoDelete(int id)
-        {
-            if (MessageBox.Show("Você realmente deseja apagar este empréstimo?", "Empréstimo deletado!", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                var model = _context.Emprestimos.Find(id);
-                _context.Emprestimos.Remove(model);
-                _context.SaveChanges();
-                MessageBox.Show("Empréstimo deletado!");
-                this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
-            }
-        }
-
         private void roundedButtonSair_Click(object sender, EventArgs e) => Application.Exit();
         private void roundedButtonMenu_Click(object sender, EventArgs e)
         {
@@ -348,7 +284,7 @@ namespace CaloteirosNuncaMais.Forms.Telas
         }
         private void roundedButtonNew_Click(object sender, EventArgs e)
         {
-            using (var form = new CreateOrEdit())
+            using (var form = new Create())
             {
                 form.Text = "Novo Empréstimo";
                 form.buttonAdd.Text = "Adicionar";
@@ -435,7 +371,63 @@ namespace CaloteirosNuncaMais.Forms.Telas
         {
             int? Id = this.dataGridViewPeoples.Rows[e.RowIndex].Cells[0].Value as int?;
             if (Id.HasValue)
-                this.EmprestimoDelete(Id.Value);
+                this.EmprestimoDetails(Id.Value);
+        }
+
+        private void EmprestimoDetails(int id)
+        {
+            var form = new Details();
+            var emprestimo = _context.Emprestimos.Find(id);
+            var userData = _context.Emprestimos.Where(x => x.Email == emprestimo.Email);
+
+            form.labelTitle.Text = $"Detalhes de {emprestimo.Nome}";
+            form.labelAssinatura.Text = $"Assinatura de {emprestimo.Nome}.";
+            form.labelNome.Text = emprestimo.Nome;
+            form.labelEmail.Text = emprestimo.Email;
+            decimal deve = 0;
+            if (emprestimo.MesesAtrasados > 0 && emprestimo.Pago != nameof(EStatus.PAGO))
+                for (int i = 0; i < emprestimo.MesesAtrasados; i++)
+                    deve += emprestimo.Valor * (decimal)0.01;
+            form.labelValorComJuros.Text = $"R$ {(emprestimo.Valor+deve):N2}";
+            form.labelDataEmprestimo.Text = emprestimo.DataEmp.ToString("dd/MM/yyyy");
+            form.labelDataPagamento.Text = emprestimo.DataPrevisao.ToString("dd/MM/yyyy");
+            form.pictureBoxChecked.Image = emprestimo.Pago == nameof(EStatus.PAGO) ? Properties.Resources.check : form.pictureBoxChecked.Image;
+            form.panelTitle.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, form.panelTitle.Width, form.panelTitle.Height, 15, 15));
+            form.panel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, form.panel.Width, form.panel.Height, 15, 15));
+            form.panelPersonalDetails.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, form.panelPersonalDetails.Width, form.panelPersonalDetails.Height, 15, 15));
+            form.panelButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, form.panelButton.Width, form.panelButton.Height, 40, 40));
+            form.pictureBoxImage.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, form.pictureBoxImage.Width, form.pictureBoxImage.Height, 15, 15));
+            form.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, form.Width, form.Height, 15, 15));
+            form.Show();
+        }
+        private void EmprestimoDelete(int id)
+        {
+            if (MessageBox.Show("Você realmente deseja apagar este empréstimo?", "Empréstimo deletado!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var model = _context.Emprestimos.Find(id);
+                _context.Emprestimos.Remove(model);
+                _context.SaveChanges();
+                MessageBox.Show("Empréstimo deletado!");
+                this.ReloadData(DistinctByEmail(), this.dataGridViewPeoples);
+            }
+        }
+
+        private void Principal_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+                return;
+
+            _mouseClicked = true;
+            _clickedAt = e.Location;
+        }
+        private void Principal_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseClicked)
+                this.Location = new Point(System.Windows.Forms.Cursor.Position.X - _clickedAt.X, System.Windows.Forms.Cursor.Position.Y - _clickedAt.Y);
+        }
+        private void Principal_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseClicked = false;
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CaloteirosNuncaMais.Forms.Windows.Dialogs
 {
-    public partial class CreateOrEdit : Form
+    public partial class Create : Form
     {
-        public CreateOrEdit()
+        public Create()
         {
             InitializeComponent();
         }

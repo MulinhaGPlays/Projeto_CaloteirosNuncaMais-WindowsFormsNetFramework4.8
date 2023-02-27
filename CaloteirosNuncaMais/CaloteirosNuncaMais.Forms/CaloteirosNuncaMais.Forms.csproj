@@ -87,11 +87,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EmailService.cs" />
-    <Compile Include="Windows\Dialogs\CreateOrEdit.cs">
+    <Compile Include="Windows\Dialogs\Create.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\Dialogs\CreateOrEdit.Designer.cs">
-      <DependentUpon>CreateOrEdit.cs</DependentUpon>
+    <Compile Include="Windows\Dialogs\Create.Designer.cs">
+      <DependentUpon>Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Dialogs\Details.cs">
       <SubType>Form</SubType>
@@ -121,8 +121,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Windows\Dialogs\CreateOrEdit.resx">
-      <DependentUpon>CreateOrEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Windows\Dialogs\Create.resx">
+      <DependentUpon>Create.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Dialogs\Details.resx">
       <DependentUpon>Details.cs</DependentUpon>
@@ -180,6 +180,9 @@
       <DependentUpon>dbEmprestimos.edmx</DependentUpon>
       <LastGenOutput>dbEmprestimos.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\multiply.png" />
     <None Include="Resources\1648571588-roxinho-basicos-flutuantes-md-3x.png" />
     <None Include="Resources\Nubank_logo_2021.png" />
     <None Include="Resources\8110265-fundo-roxo-ondulado-moderno-gratis-vetor.jpg" />
